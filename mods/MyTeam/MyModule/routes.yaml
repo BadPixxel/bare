@@ -1,0 +1,3 @@
+_my_modules:
+    resource: '@TwigBundle/Resources/config/routing/errors.xml'
+    prefix: /_error
