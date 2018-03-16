@@ -1,6 +1,6 @@
 <?php
 
-use App\Kernel;
+use Dolibarr\Core\CoreBundle\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;

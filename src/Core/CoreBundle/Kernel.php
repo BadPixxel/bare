@@ -1,12 +1,15 @@
 <?php
 
-namespace App;
+namespace Dolibarr\Core\CoreBundle;
+
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+
+use Symfony\Component\Yaml\Yaml;
 
 class Kernel extends BaseKernel
 {
@@ -26,12 +29,23 @@ class Kernel extends BaseKernel
 
     public function registerBundles()
     {
-        $contents = require $this->getProjectDir().'/config/bundles.php';
-        foreach ($contents as $class => $envs) {
+        // Enable Bundles installed by Symfony Flex
+        $Bundles = require $this->getProjectDir().'/config/bundles.php';
+        foreach ($Bundles as $class => $envs) {
             if (isset($envs['all']) || isset($envs[$this->environment])) {
                 yield new $class();
             }
         }
+        
+        // Load Dolibarr Core Configuration
+        $Modules = Yaml::parseFile($this->getProjectDir().'/config/modules.yml');
+        // Enable Bundles Activated By User
+        foreach ($Modules as $class => $envs) {
+            if (isset($envs['all']) || isset($envs[$this->environment])) {
+                yield new $class();
+            }
+        }
+        
     }
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
@@ -60,7 +74,18 @@ class Kernel extends BaseKernel
         $routes->import($confDir.'/{routes}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir.'/{routes}'.self::CONFIG_EXTS, '/', 'glob');
         
-        $routes->import($this->getProjectDir().'/src/**/**/routes'.self::CONFIG_EXTS, '/', 'glob');
-        $routes->import($this->getProjectDir().'/mods/**/**/routes'.self::CONFIG_EXTS, '/mods', 'glob');
+//        $routes->import($this->getProjectDir().'/src/**/routes'.self::CONFIG_EXTS, '/', 'glob');
+//        $routes->import($this->getProjectDir().'/mods/**/**/routes'.self::CONFIG_EXTS, '/mods', 'glob');
+        
+        // Load Dolibarr Core Configuration
+        $Modules = Yaml::parseFile($this->getProjectDir().'/config/modules.yml');
+        // Load Bundles Routing
+        foreach ($Modules as $class => $envs) {
+            if ( method_exists($class, "configureRoutes")) {
+                if (isset($envs['all']) || isset($envs[$this->environment])) {
+                    $class::configureRoutes($routes);
+                }
+            }
+        }        
     }
 }

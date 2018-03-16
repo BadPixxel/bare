@@ -1,0 +1,9 @@
+######################################################
+## Dolibarr Core Configuration File
+######################################################
+
+
+Dolibarr\Core\CoreBundle\DolibarrCoreBundle:
+    all:    true
+Dolibarr\Core\ConfigurationBundle\DolibarrConfigurationBundle:
+    all:    true        
