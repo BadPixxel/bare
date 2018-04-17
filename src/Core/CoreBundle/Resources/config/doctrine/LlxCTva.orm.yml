@@ -1,0 +1,100 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCTva:
+    type: entity
+    table: llx_c_tva
+    uniqueConstraints:
+        uk_c_tva_id:
+            columns:
+                - fk_pays
+                - code
+                - taux
+                - recuperableonly
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkPays:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_pays
+        code:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                default: ''
+        taux:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        localtax1:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+                default: '0'
+        localtax1Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax1_type
+        localtax2:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+                default: '0'
+        localtax2Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax2_type
+        recuperableonly:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        note:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        accountancyCodeSell:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_sell
+        accountancyCodeBuy:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_buy
+    lifecycleCallbacks: {  }

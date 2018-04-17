@@ -1,0 +1,52 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCActionTrigger:
+    type: entity
+    table: llx_c_action_trigger
+    indexes:
+        idx_action_trigger_rang:
+            columns:
+                - rang
+    uniqueConstraints:
+        uk_action_trigger_code:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        elementtype:
+            type: string
+            nullable: false
+            length: 24
+            options:
+                fixed: false
+        code:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

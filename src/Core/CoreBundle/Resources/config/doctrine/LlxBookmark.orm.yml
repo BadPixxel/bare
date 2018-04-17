@@ -1,0 +1,68 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBookmark:
+    type: entity
+    table: llx_bookmark
+    uniqueConstraints:
+        uk_bookmark_url:
+            columns:
+                - fk_user
+                - url
+        uk_bookmark_title:
+            columns:
+                - fk_user
+                - title
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user
+        dateb:
+            type: datetime
+            nullable: true
+        url:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        target:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        favicon:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

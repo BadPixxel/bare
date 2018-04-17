@@ -1,0 +1,286 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSupplierProposal:
+    type: entity
+    table: llx_supplier_proposal
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        refInt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_int
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        fkProjet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_projet
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        dateCloture:
+            type: datetime
+            nullable: true
+            column: date_cloture
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkUserCloture:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_cloture
+        fkStatut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        remisePercent:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_percent
+        remiseAbsolue:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_absolue
+        remise:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        tva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        total:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        fkAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_account
+        fkCurrency:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+            column: fk_currency
+        fkCondReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_cond_reglement
+        fkModeReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_mode_reglement
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        lastMainDoc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: last_main_doc
+        dateLivraison:
+            type: date
+            nullable: true
+            column: date_livraison
+        fkShippingMethod:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_shipping_method
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+    lifecycleCallbacks: {  }

@@ -1,0 +1,143 @@
+Dolibarr\Core\CoreBundle\Entity\LlxEcmFiles:
+    type: entity
+    table: llx_ecm_files
+    indexes:
+        idx_ecm_files_label:
+            columns:
+                - label
+    uniqueConstraints:
+        uk_ecm_files:
+            columns:
+                - filepath
+                - filename
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        share:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        filepath:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        filename:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        srcObjectType:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: src_object_type
+        srcObjectId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: src_object_id
+        fullpathOrig:
+            type: string
+            nullable: true
+            length: 750
+            options:
+                fixed: false
+            column: fullpath_orig
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        keywords:
+            type: string
+            nullable: true
+            length: 750
+            options:
+                fixed: false
+        cover:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        genOrUploaded:
+            type: string
+            nullable: true
+            length: 12
+            options:
+                fixed: false
+            column: gen_or_uploaded
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        dateC:
+            type: datetime
+            nullable: true
+            column: date_c
+        dateM:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: date_m
+        fkUserC:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_c
+        fkUserM:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_m
+        acl:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

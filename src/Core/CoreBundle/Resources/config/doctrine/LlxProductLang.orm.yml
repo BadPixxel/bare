@@ -1,0 +1,66 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductLang:
+    type: entity
+    table: llx_product_lang
+    indexes:
+        IDX_45EBD68623653981:
+            columns:
+                - fk_product
+    uniqueConstraints:
+        uk_product_lang:
+            columns:
+                - fk_product
+                - lang
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        lang:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+                default: '0'
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkProduct:
+            targetEntity: LlxProduct
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_product:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

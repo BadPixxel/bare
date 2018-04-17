@@ -1,0 +1,37 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCCurrencies:
+    type: entity
+    table: llx_c_currencies
+    uniqueConstraints:
+        uk_c_currencies_code_iso:
+            columns:
+                - code_iso
+    id:
+        codeIso:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            id: true
+            column: code_iso
+            generator:
+                strategy: IDENTITY
+    fields:
+        label:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        unicode:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    lifecycleCallbacks: {  }

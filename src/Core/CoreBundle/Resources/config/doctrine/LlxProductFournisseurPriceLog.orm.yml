@@ -1,0 +1,74 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductFournisseurPriceLog:
+    type: entity
+    table: llx_product_fournisseur_price_log
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        fkProductFournisseur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_product_fournisseur
+        price:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        quantity:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyPrice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_price
+        multicurrencyPriceTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_price_ttc
+    lifecycleCallbacks: {  }

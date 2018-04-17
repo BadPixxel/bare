@@ -1,0 +1,66 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPrinting:
+    type: entity
+    table: llx_printing
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        printerName:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: printer_name
+        printerLocation:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: printer_location
+        printerId:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: printer_id
+        copy:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        module:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+        driver:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+        userid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

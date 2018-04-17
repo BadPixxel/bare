@@ -1,0 +1,99 @@
+Dolibarr\Core\CoreBundle\Entity\LlxInventory:
+    type: entity
+    table: llx_inventory
+    indexes:
+        idx_inventory_tms:
+            columns:
+                - tms
+        idx_inventory_date_creation:
+            columns:
+                - date_creation
+    uniqueConstraints:
+        uk_inventory_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        ref:
+            type: string
+            nullable: true
+            length: 48
+            options:
+                fixed: false
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkWarehouse:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_warehouse
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        dateInventory:
+            type: datetime
+            nullable: true
+            column: date_inventory
+        dateValidation:
+            type: datetime
+            nullable: true
+            column: date_validation
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

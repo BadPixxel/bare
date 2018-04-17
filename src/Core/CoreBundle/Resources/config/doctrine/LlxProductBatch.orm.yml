@@ -1,0 +1,68 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductBatch:
+    type: entity
+    table: llx_product_batch
+    indexes:
+        idx_fk_product_stock:
+            columns:
+                - fk_product_stock
+        idx_batch:
+            columns:
+                - batch
+    uniqueConstraints:
+        uk_product_batch:
+            columns:
+                - fk_product_stock
+                - batch
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        eatby:
+            type: datetime
+            nullable: true
+        sellby:
+            type: datetime
+            nullable: true
+        batch:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        qty:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkProductStock:
+            targetEntity: LlxProductStock
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_product_stock:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

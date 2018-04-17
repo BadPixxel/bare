@@ -1,0 +1,32 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductAttributeCombination2val:
+    type: entity
+    table: llx_product_attribute_combination2val
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkProdCombination:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_prod_combination
+        fkProdAttr:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_prod_attr
+        fkProdAttrVal:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_prod_attr_val
+    lifecycleCallbacks: {  }

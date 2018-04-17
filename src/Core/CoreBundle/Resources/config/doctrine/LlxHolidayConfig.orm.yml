@@ -1,0 +1,30 @@
+Dolibarr\Core\CoreBundle\Entity\LlxHolidayConfig:
+    type: entity
+    table: llx_holiday_config
+    uniqueConstraints:
+        idx_holiday_config:
+            columns:
+                - name
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        value:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

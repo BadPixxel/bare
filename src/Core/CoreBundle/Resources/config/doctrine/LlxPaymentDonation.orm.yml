@@ -1,0 +1,75 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPaymentDonation:
+    type: entity
+    table: llx_payment_donation
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkDonation:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_donation
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datep:
+            type: datetime
+            nullable: true
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        fkTypepayment:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_typepayment
+        numPayment:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: num_payment
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkBank:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_bank
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+    lifecycleCallbacks: {  }

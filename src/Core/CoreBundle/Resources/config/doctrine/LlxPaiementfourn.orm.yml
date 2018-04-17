@@ -1,0 +1,96 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPaiementfourn:
+    type: entity
+    table: llx_paiementfourn
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        datep:
+            type: datetime
+            nullable: true
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        multicurrencyAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_amount
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkPaiement:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_paiement
+        numPaiement:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: num_paiement
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkBank:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_bank
+        statut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+    lifecycleCallbacks: {  }

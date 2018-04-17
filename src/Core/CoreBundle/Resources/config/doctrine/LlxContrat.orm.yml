@@ -1,0 +1,187 @@
+Dolibarr\Core\CoreBundle\Entity\LlxContrat:
+    type: entity
+    table: llx_contrat
+    indexes:
+        idx_contrat_fk_soc:
+            columns:
+                - fk_soc
+        idx_contrat_fk_user_author:
+            columns:
+                - fk_user_author
+    uniqueConstraints:
+        uk_contrat_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        refCustomer:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_customer
+        refSupplier:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_supplier
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        dateContrat:
+            type: datetime
+            nullable: true
+            column: date_contrat
+        statut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        miseEnService:
+            type: datetime
+            nullable: true
+            column: mise_en_service
+        finValidite:
+            type: datetime
+            nullable: true
+            column: fin_validite
+        dateCloture:
+            type: datetime
+            nullable: true
+            column: date_cloture
+        fkProjet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_projet
+        fkCommercialSignature:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_commercial_signature
+        fkCommercialSuivi:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_commercial_suivi
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserMiseEnService:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_mise_en_service
+        fkUserCloture:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_cloture
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        lastMainDoc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: last_main_doc
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserAuthor:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_author:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,43 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAccountingSystem:
+    type: entity
+    table: llx_accounting_system
+    uniqueConstraints:
+        uk_accounting_system_pcg_version:
+            columns:
+                - pcg_version
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_country
+        pcgVersion:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+            column: pcg_version
+        label:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        active:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

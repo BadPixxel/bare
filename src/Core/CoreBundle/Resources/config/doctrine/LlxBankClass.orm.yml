@@ -1,0 +1,25 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBankClass:
+    type: entity
+    table: llx_bank_class
+    uniqueConstraints:
+        uk_bank_class_lineid:
+            columns:
+                - lineid
+                - fk_categ
+    id:
+        lineid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkCateg:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_categ
+    lifecycleCallbacks: {  }

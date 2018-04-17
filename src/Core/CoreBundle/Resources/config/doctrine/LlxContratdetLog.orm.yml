@@ -1,0 +1,57 @@
+Dolibarr\Core\CoreBundle\Entity\LlxContratdetLog:
+    type: entity
+    table: llx_contratdet_log
+    indexes:
+        idx_contratdet_log_fk_contratdet:
+            columns:
+                - fk_contratdet
+        idx_contratdet_log_date:
+            columns:
+                - date
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        date:
+            type: datetime
+            nullable: false
+        statut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_author
+        commentaire:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        fkContratdet:
+            targetEntity: LlxContratdet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_contratdet:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

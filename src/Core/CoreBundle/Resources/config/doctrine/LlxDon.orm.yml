@@ -1,0 +1,192 @@
+Dolibarr\Core\CoreBundle\Entity\LlxDon:
+    type: entity
+    table: llx_don
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkStatut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        datedon:
+            type: datetime
+            nullable: true
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        fkPayment:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_payment
+        paid:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        firstname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        societe:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        address:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        country:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkCountry:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_country
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+        phoneMobile:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+            column: phone_mobile
+        public:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkProjet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_projet
+        datec:
+            type: datetime
+            nullable: true
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_author
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

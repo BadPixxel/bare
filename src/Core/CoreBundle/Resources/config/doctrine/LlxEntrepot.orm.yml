@@ -1,0 +1,107 @@
+Dolibarr\Core\CoreBundle\Entity\LlxEntrepot:
+    type: entity
+    table: llx_entrepot
+    uniqueConstraints:
+        uk_entrepot_label:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        lieu:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkDepartement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_departement
+        fkPays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_pays
+        statut:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        fkParent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_parent
+    lifecycleCallbacks: {  }

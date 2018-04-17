@@ -1,0 +1,80 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCPaymentTerm:
+    type: entity
+    table: llx_c_payment_term
+    uniqueConstraints:
+        uk_c_payment_term_code:
+            columns:
+                - entity
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        code:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+        sortorder:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        active:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        libelleFacture:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: libelle_facture
+        typeCdr:
+            type: boolean
+            nullable: true
+            column: type_cdr
+        nbjour:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        decalage:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

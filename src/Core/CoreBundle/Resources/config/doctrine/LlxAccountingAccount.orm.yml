@@ -1,0 +1,121 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAccountingAccount:
+    type: entity
+    table: llx_accounting_account
+    indexes:
+        idx_accounting_account_fk_pcg_version:
+            columns:
+                - fk_pcg_version
+    uniqueConstraints:
+        uk_accounting_account:
+            columns:
+                - account_number
+                - entity
+                - fk_pcg_version
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        pcgType:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: pcg_type
+        pcgSubtype:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: pcg_subtype
+        accountNumber:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+            column: account_number
+        accountParent:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+                default: '0'
+            column: account_parent
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        fkAccountingCategory:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_accounting_category
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        fkPcgVersion:
+            targetEntity: LlxAccountingSystem
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_pcg_version:
+                    referencedColumnName: pcg_version
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

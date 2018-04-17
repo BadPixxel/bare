@@ -1,0 +1,57 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCFormeJuridique:
+    type: entity
+    table: llx_c_forme_juridique
+    uniqueConstraints:
+        uk_c_forme_juridique:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        fkPays:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_pays
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        isvatexempted:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

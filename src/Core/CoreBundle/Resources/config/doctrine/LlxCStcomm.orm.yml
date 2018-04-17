@@ -1,0 +1,41 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCStcomm:
+    type: entity
+    table: llx_c_stcomm
+    uniqueConstraints:
+        uk_c_stcomm:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+        libelle:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        picto:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    lifecycleCallbacks: {  }

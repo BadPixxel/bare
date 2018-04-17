@@ -1,0 +1,44 @@
+Dolibarr\Core\CoreBundle\Entity\LlxImportModel:
+    type: entity
+    table: llx_import_model
+    uniqueConstraints:
+        uk_import_model:
+            columns:
+                - label
+                - type
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_user
+        label:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        field:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,74 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCZiptown:
+    type: entity
+    table: llx_c_ziptown
+    indexes:
+        idx_c_ziptown_fk_county:
+            columns:
+                - fk_county
+        idx_c_ziptown_fk_pays:
+            columns:
+                - fk_pays
+        idx_c_ziptown_zip:
+            columns:
+                - zip
+    uniqueConstraints:
+        uk_ziptown_fk_pays:
+            columns:
+                - zip
+                - town
+                - fk_pays
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    manyToOne:
+        fkCounty:
+            targetEntity: LlxCDepartements
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_county:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkPays:
+            targetEntity: LlxCCountry
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_pays:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

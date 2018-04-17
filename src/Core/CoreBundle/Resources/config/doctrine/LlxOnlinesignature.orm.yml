@@ -1,0 +1,59 @@
+Dolibarr\Core\CoreBundle\Entity\LlxOnlinesignature:
+    type: entity
+    table: llx_onlinesignature
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        objectType:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+            column: object_type
+        objectId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: object_id
+        datec:
+            type: datetime
+            nullable: false
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        ip:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        pathoffile:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

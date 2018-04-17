@@ -1,0 +1,84 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBordereauCheque:
+    type: entity
+    table: llx_bordereau_cheque
+    uniqueConstraints:
+        uk_bordereau_cheque:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        datec:
+            type: datetime
+            nullable: false
+        dateBordereau:
+            type: date
+            nullable: true
+            column: date_bordereau
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        nbcheque:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+        fkBankAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_bank_account
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        statut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

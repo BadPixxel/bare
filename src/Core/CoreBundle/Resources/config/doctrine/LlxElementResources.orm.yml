@@ -1,0 +1,77 @@
+Dolibarr\Core\CoreBundle\Entity\LlxElementResources:
+    type: entity
+    table: llx_element_resources
+    indexes:
+        idx_element_element_element_id:
+            columns:
+                - element_id
+    uniqueConstraints:
+        idx_element_resources_idx1:
+            columns:
+                - resource_id
+                - resource_type
+                - element_id
+                - element_type
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        elementId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: element_id
+        elementType:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+            column: element_type
+        resourceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: resource_id
+        resourceType:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+            column: resource_type
+        busy:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        mandatory:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        duree:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        fkUserCreate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_create
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+    lifecycleCallbacks: {  }

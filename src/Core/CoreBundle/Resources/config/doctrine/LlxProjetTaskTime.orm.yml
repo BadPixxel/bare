@@ -1,0 +1,95 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProjetTaskTime:
+    type: entity
+    table: llx_projet_task_time
+    indexes:
+        idx_projet_task_time_task:
+            columns:
+                - fk_task
+        idx_projet_task_time_date:
+            columns:
+                - task_date
+        idx_projet_task_time_datehour:
+            columns:
+                - task_datehour
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkTask:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_task
+        taskDate:
+            type: date
+            nullable: true
+            column: task_date
+        taskDatehour:
+            type: datetime
+            nullable: true
+            column: task_datehour
+        taskDateWithhour:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: task_date_withhour
+        taskDuration:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: task_duration
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        thm:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        invoiceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: invoice_id
+        invoiceLineId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: invoice_line_id
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        datec:
+            type: date
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

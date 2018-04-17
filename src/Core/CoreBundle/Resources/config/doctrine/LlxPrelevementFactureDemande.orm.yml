@@ -1,0 +1,78 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPrelevementFactureDemande:
+    type: entity
+    table: llx_prelevement_facture_demande
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkFacture:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_facture
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        dateDemande:
+            type: datetime
+            nullable: false
+            column: date_demande
+        traite:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        dateTraite:
+            type: datetime
+            nullable: true
+            column: date_traite
+        fkPrelevementBons:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_prelevement_bons
+        fkUserDemande:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_demande
+        codeBanque:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: code_banque
+        codeGuichet:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: code_guichet
+        number:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cleRib:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cle_rib
+    lifecycleCallbacks: {  }

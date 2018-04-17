@@ -1,0 +1,54 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSocieteRemise:
+    type: entity
+    table: llx_societe_remise
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkSoc:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_soc
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        remiseClient:
+            type: float
+            nullable: false
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: remise_client
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

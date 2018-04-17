@@ -1,0 +1,48 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAccountingJournal:
+    type: entity
+    table: llx_accounting_journal
+    uniqueConstraints:
+        uk_accounting_journal_code:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        code:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        nature:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        active:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

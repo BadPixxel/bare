@@ -1,0 +1,55 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductStock:
+    type: entity
+    table: llx_product_stock
+    indexes:
+        idx_product_stock_fk_product:
+            columns:
+                - fk_product
+        idx_product_stock_fk_entrepot:
+            columns:
+                - fk_entrepot
+    uniqueConstraints:
+        uk_product_stock:
+            columns:
+                - fk_product
+                - fk_entrepot
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkProduct:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_product
+        fkEntrepot:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_entrepot
+        reel:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

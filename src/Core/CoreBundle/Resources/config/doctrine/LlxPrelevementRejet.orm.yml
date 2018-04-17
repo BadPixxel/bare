@@ -1,0 +1,56 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPrelevementRejet:
+    type: entity
+    table: llx_prelevement_rejet
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkPrelevementLignes:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_prelevement_lignes
+        dateRejet:
+            type: datetime
+            nullable: true
+            column: date_rejet
+        motif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        fkUserCreation:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creation
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        afacturer:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        fkFacture:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_facture
+    lifecycleCallbacks: {  }

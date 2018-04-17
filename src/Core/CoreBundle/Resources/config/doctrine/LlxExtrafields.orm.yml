@@ -1,0 +1,143 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExtrafields:
+    type: entity
+    table: llx_extrafields
+    uniqueConstraints:
+        uk_extrafields_name:
+            columns:
+                - name
+                - entity
+                - elementtype
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        elementtype:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+                default: member
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+        size:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+        fieldcomputed:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fielddefault:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fieldunique:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        fieldrequired:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        perms:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        enabled:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        pos:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        alwayseditable:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        param:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        list:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        langs:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+    lifecycleCallbacks: {  }

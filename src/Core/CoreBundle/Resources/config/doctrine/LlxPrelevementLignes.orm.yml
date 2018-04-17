@@ -1,0 +1,88 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPrelevementLignes:
+    type: entity
+    table: llx_prelevement_lignes
+    indexes:
+        idx_prelevement_lignes_fk_prelevement_bons:
+            columns:
+                - fk_prelevement_bons
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkSoc:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_soc
+        statut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        clientNom:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: client_nom
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        codeBanque:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: code_banque
+        codeGuichet:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: code_guichet
+        number:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cleRib:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cle_rib
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        fkPrelevementBons:
+            targetEntity: LlxPrelevementBons
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_prelevement_bons:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

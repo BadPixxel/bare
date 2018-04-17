@@ -1,0 +1,49 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBankUrl:
+    type: entity
+    table: llx_bank_url
+    uniqueConstraints:
+        uk_bank_url:
+            columns:
+                - fk_bank
+                - type
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkBank:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_bank
+        urlId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: url_id
+        url:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 24
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

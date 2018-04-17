@@ -1,0 +1,223 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAccountingBookkeepingTmp:
+    type: entity
+    table: llx_accounting_bookkeeping_tmp
+    indexes:
+        idx_accounting_bookkeeping_doc_date:
+            columns:
+                - doc_date
+        idx_accounting_bookkeeping_fk_docdet:
+            columns:
+                - fk_docdet
+        idx_accounting_bookkeeping_numero_compte:
+            columns:
+                - numero_compte
+        idx_accounting_bookkeeping_code_journal:
+            columns:
+                - code_journal
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        docDate:
+            type: date
+            nullable: false
+            column: doc_date
+        docType:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+            column: doc_type
+        docRef:
+            type: string
+            nullable: false
+            length: 300
+            options:
+                fixed: false
+            column: doc_ref
+        fkDoc:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_doc
+        fkDocdet:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_docdet
+        thirdpartyCode:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: thirdparty_code
+        subledgerAccount:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: subledger_account
+        subledgerLabel:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: subledger_label
+        numeroCompte:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: numero_compte
+        labelCompte:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: label_compte
+        labelOperation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: label_operation
+        debit:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        credit:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        montant:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        sens:
+            type: string
+            nullable: true
+            length: 1
+            options:
+                fixed: false
+        multicurrencyAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_amount
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        letteringCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: lettering_code
+        dateLettering:
+            type: datetime
+            nullable: true
+            column: date_lettering
+        dateLimReglement:
+            type: datetime
+            nullable: true
+            column: date_lim_reglement
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        codeJournal:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+            column: code_journal
+        journalLabel:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: journal_label
+        pieceNum:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: piece_num
+        validated:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+        dateValidated:
+            type: datetime
+            nullable: true
+            column: date_validated
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,469 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProduct:
+    type: entity
+    table: llx_product
+    indexes:
+        idx_product_label:
+            columns:
+                - label
+        idx_product_barcode:
+            columns:
+                - barcode
+        idx_product_import_key:
+            columns:
+                - import_key
+        idx_product_seuil_stock_alerte:
+            columns:
+                - seuil_stock_alerte
+        idx_product_fk_country:
+            columns:
+                - fk_country
+        idx_product_fk_user_author:
+            columns:
+                - fk_user_author
+        idx_product_fk_barcode_type:
+            columns:
+                - fk_barcode_type
+        fk_product_fk_unit:
+            columns:
+                - fk_unit
+    uniqueConstraints:
+        uk_product_ref:
+            columns:
+                - ref
+                - entity
+        uk_product_barcode:
+            columns:
+                - barcode
+                - fk_barcode_type
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: ref_ext
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkParent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_parent
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        customcode:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        price:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        priceTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: price_ttc
+        priceMin:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: price_min
+        priceMinTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: price_min_ttc
+        priceBaseType:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+                default: HT
+            column: price_base_type
+        costPrice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: cost_price
+        defaultVatCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: default_vat_code
+        tvaTx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            column: tva_tx
+        recuperableonly:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        localtax1Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax1_tx
+        localtax1Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax1_type
+        localtax2Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax2_tx
+        localtax2Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax2_type
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        tosell:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        tobuy:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        onportal:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        tobatch:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+        fkProductType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_product_type
+        duration:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        seuilStockAlerte:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: seuil_stock_alerte
+        url:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        barcode:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+        accountancyCodeSell:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_sell
+        accountancyCodeSellIntra:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_sell_intra
+        accountancyCodeSellExport:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_sell_export
+        accountancyCodeBuy:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_buy
+        partnumber:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        weight:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        weightUnits:
+            type: boolean
+            nullable: true
+            column: weight_units
+        length:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        lengthUnits:
+            type: boolean
+            nullable: true
+            column: length_units
+        width:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        widthUnits:
+            type: boolean
+            nullable: true
+            column: width_units
+        height:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        heightUnits:
+            type: boolean
+            nullable: true
+            column: height_units
+        surface:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        surfaceUnits:
+            type: boolean
+            nullable: true
+            column: surface_units
+        volume:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        volumeUnits:
+            type: boolean
+            nullable: true
+            column: volume_units
+        stock:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        pmp:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        fifo:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        lifo:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        canvas:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        finished:
+            type: boolean
+            nullable: true
+        hidden:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        fkPriceExpression:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_price_expression
+        desiredstock:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        priceAutogen:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+            column: price_autogen
+    manyToOne:
+        fkBarcodeType:
+            targetEntity: LlxCBarcodeType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_barcode_type:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkCountry:
+            targetEntity: LlxCCountry
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_country:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUnit:
+            targetEntity: LlxCUnits
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_unit:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    manyToMany:
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkProduct
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

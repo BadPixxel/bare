@@ -1,0 +1,242 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductFournisseurPrice:
+    type: entity
+    table: llx_product_fournisseur_price
+    indexes:
+        idx_product_fournisseur_price_fk_user:
+            columns:
+                - fk_user
+        idx_product_fourn_price_fk_product:
+            columns:
+                - fk_product
+                - entity
+        idx_product_fourn_price_fk_soc:
+            columns:
+                - fk_soc
+                - entity
+        IDX_E905F9E423653981:
+            columns:
+                - fk_product
+    uniqueConstraints:
+        uk_product_fournisseur_price_ref:
+            columns:
+                - ref_fourn
+                - fk_soc
+                - quantity
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        refFourn:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: ref_fourn
+        fkAvailability:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_availability
+        price:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        quantity:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        remisePercent:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_percent
+        remise:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        unitprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        charges:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        defaultVatCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: default_vat_code
+        tvaTx:
+            type: float
+            nullable: false
+            precision: 6
+            scale: 3
+            column: tva_tx
+        localtax1Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax1_tx
+        localtax1Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax1_type
+        localtax2Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax2_tx
+        localtax2Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax2_type
+        infoBits:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: info_bits
+        fkSupplierPriceExpression:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_supplier_price_expression
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        deliveryTimeDays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: delivery_time_days
+        supplierReputation:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: supplier_reputation
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyPrice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_price
+        multicurrencyPriceTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_price_ttc
+    manyToOne:
+        fkProduct:
+            targetEntity: LlxProduct
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_product:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUser:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

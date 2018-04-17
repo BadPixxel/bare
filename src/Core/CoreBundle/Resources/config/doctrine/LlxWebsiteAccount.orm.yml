@@ -1,0 +1,128 @@
+Dolibarr\Core\CoreBundle\Entity\LlxWebsiteAccount:
+    type: entity
+    table: llx_website_account
+    indexes:
+        idx_website_account_rowid:
+            columns:
+                - rowid
+        idx_website_account_login:
+            columns:
+                - login
+        idx_website_account_status:
+            columns:
+                - status
+        idx_website_account_fk_website:
+            columns:
+                - fk_website
+        idx_website_account_fk_soc:
+            columns:
+                - fk_soc
+    uniqueConstraints:
+        uk_website_account_login_website_soc:
+            columns:
+                - login
+                - fk_website
+                - fk_soc
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        login:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        passEncoding:
+            type: string
+            nullable: false
+            length: 24
+            options:
+                fixed: false
+            column: pass_encoding
+        passCrypted:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: pass_crypted
+        passTemp:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: pass_temp
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        dateLastLogin:
+            type: datetime
+            nullable: true
+            column: date_last_login
+        datePreviousLogin:
+            type: datetime
+            nullable: true
+            column: date_previous_login
+        dateCreation:
+            type: datetime
+            nullable: false
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        fkWebsite:
+            targetEntity: LlxWebsite
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_website:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

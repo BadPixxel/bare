@@ -1,0 +1,192 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSocieteRemiseExcept:
+    type: entity
+    table: llx_societe_remise_except
+    indexes:
+        idx_societe_remise_except_fk_user:
+            columns:
+                - fk_user
+        idx_societe_remise_except_fk_soc:
+            columns:
+                - fk_soc
+        idx_societe_remise_except_fk_facture_line:
+            columns:
+                - fk_facture_line
+        idx_societe_remise_except_fk_facture:
+            columns:
+                - fk_facture
+        idx_societe_remise_except_fk_facture_source:
+            columns:
+                - fk_facture_source
+        idx_societe_remise_except_discount_type:
+            columns:
+                - discount_type
+        fk_soc_remise_fk_invoice_supplier_line:
+            columns:
+                - fk_invoice_supplier_line
+        fk_societe_remise_fk_invoice_supplier_source:
+            columns:
+                - fk_invoice_supplier
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        discountType:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: discount_type
+        datec:
+            type: datetime
+            nullable: true
+        amountHt:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            column: amount_ht
+        amountTva:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: amount_tva
+        amountTtc:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: amount_ttc
+        tvaTx:
+            type: float
+            nullable: false
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: tva_tx
+        fkInvoiceSupplierSource:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_invoice_supplier_source
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        multicurrencyAmountHt:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_amount_ht
+        multicurrencyAmountTva:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_amount_tva
+        multicurrencyAmountTtc:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_amount_ttc
+    manyToOne:
+        fkFactureLine:
+            targetEntity: LlxFacturedet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_facture_line:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkInvoiceSupplierLine:
+            targetEntity: LlxFactureFournDet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_invoice_supplier_line:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkFacture:
+            targetEntity: LlxFacture
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_facture:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkFactureSource:
+            targetEntity: LlxFacture
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_facture_source:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkInvoiceSupplier:
+            targetEntity: LlxFactureFourn
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_invoice_supplier:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUser:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,168 @@
+Dolibarr\Core\CoreBundle\Entity\LlxFichinter:
+    type: entity
+    table: llx_fichinter
+    indexes:
+        idx_fichinter_fk_soc:
+            columns:
+                - fk_soc
+    uniqueConstraints:
+        uk_fichinter_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkProjet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_projet
+        fkContrat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_contrat
+        ref:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        datei:
+            type: date
+            nullable: true
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkStatut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        dateo:
+            type: date
+            nullable: true
+        datee:
+            type: date
+            nullable: true
+        datet:
+            type: date
+            nullable: true
+        duree:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        lastMainDoc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: last_main_doc
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

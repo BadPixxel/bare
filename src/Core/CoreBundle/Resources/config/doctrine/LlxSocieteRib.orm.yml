@@ -1,0 +1,233 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSocieteRib:
+    type: entity
+    table: llx_societe_rib
+    uniqueConstraints:
+        uk_societe_rib:
+            columns:
+                - label
+                - fk_soc
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        type:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+                default: ban
+        label:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        fkSoc:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_soc
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        bank:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        codeBanque:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: code_banque
+        codeGuichet:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: code_guichet
+        number:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cleRib:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cle_rib
+        bic:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        ibanPrefix:
+            type: string
+            nullable: true
+            length: 34
+            options:
+                fixed: false
+            column: iban_prefix
+        domiciliation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        proprio:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        ownerAddress:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: owner_address
+        defaultRib:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: default_rib
+        rum:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        dateRum:
+            type: date
+            nullable: true
+            column: date_rum
+        frstrecur:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+                default: FRST
+        lastFour:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: false
+            column: last_four
+        cardType:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: card_type
+        cvn:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        expDateMonth:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: exp_date_month
+        expDateYear:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: exp_date_year
+        countryCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: country_code
+        approved:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        endingDate:
+            type: date
+            nullable: true
+            column: ending_date
+        maxTotalAmountOfAllPayments:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: max_total_amount_of_all_payments
+        preapprovalKey:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: preapproval_key
+        startingDate:
+            type: date
+            nullable: true
+            column: starting_date
+        totalAmountOfAllPayments:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: total_amount_of_all_payments
+        stripeCardRef:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: stripe_card_ref
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

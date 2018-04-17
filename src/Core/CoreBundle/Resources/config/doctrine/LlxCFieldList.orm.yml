@@ -1,0 +1,79 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCFieldList:
+    type: entity
+    table: llx_c_field_list
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        element:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        name:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        alias:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        align:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+                default: left
+        sort:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        search:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+        enabled:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: '1'
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

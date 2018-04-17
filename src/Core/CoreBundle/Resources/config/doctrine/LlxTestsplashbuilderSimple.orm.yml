@@ -1,0 +1,112 @@
+Dolibarr\Core\CoreBundle\Entity\LlxTestsplashbuilderSimple:
+    type: entity
+    table: llx_testsplashbuilder_simple
+    indexes:
+        idx_testsplashbuilder_simple_rowid:
+            columns:
+                - rowid
+        idx_testsplashbuilder_simple_ref:
+            columns:
+                - ref
+        idx_testsplashbuilder_simple_entity:
+            columns:
+                - entity
+        idx_testsplashbuilder_simple_fk_soc:
+            columns:
+                - fk_soc
+        idx_testsplashbuilder_simple_status:
+            columns:
+                - status
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        label:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        dateCreation:
+            type: datetime
+            nullable: false
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

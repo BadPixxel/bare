@@ -1,0 +1,54 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCTypeFees:
+    type: entity
+    table: llx_c_type_fees
+    uniqueConstraints:
+        uk_c_type_fees:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        accountancyCode:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

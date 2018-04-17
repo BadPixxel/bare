@@ -1,0 +1,69 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAdherentType:
+    type: entity
+    table: llx_adherent_type
+    uniqueConstraints:
+        uk_adherent_type_libelle:
+            columns:
+                - libelle
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        statut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        libelle:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        subscription:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+                default: 'yes'
+        vote:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+                default: 'yes'
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        mailValid:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: mail_valid
+    lifecycleCallbacks: {  }

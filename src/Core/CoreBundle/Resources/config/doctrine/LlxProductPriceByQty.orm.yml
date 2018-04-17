@@ -1,0 +1,133 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductPriceByQty:
+    type: entity
+    table: llx_product_price_by_qty
+    indexes:
+        idx_product_price_by_qty_fk_product_price:
+            columns:
+                - fk_product_price
+    uniqueConstraints:
+        uk_product_price_by_qty_level:
+            columns:
+                - fk_product_price
+                - quantity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        price:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        priceBaseType:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+                default: HT
+            column: price_base_type
+        quantity:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        remisePercent:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_percent
+        remise:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        unitprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyPrice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_price
+        multicurrencyPriceTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: multicurrency_price_ttc
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkProductPrice:
+            targetEntity: LlxProductPrice
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_product_price:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

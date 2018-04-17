@@ -1,0 +1,60 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCHolidayTypes:
+    type: entity
+    table: llx_c_holiday_types
+    uniqueConstraints:
+        uk_c_holiday_types:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        affect:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        delay:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        newbymonth:
+            type: float
+            nullable: false
+            precision: 8
+            scale: 5
+            options:
+                default: '0.00000'
+            column: newByMonth
+        fkCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_country
+        active:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

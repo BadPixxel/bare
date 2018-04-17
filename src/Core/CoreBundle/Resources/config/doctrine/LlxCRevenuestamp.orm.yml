@@ -1,0 +1,58 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCRevenuestamp:
+    type: entity
+    table: llx_c_revenuestamp
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkPays:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_pays
+        taux:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        revenuestampType:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+                default: fixed
+            column: revenuestamp_type
+        note:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        accountancyCodeSell:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_sell
+        accountancyCodeBuy:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code_buy
+    lifecycleCallbacks: {  }

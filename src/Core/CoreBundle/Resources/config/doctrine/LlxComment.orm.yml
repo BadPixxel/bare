@@ -1,0 +1,60 @@
+Dolibarr\Core\CoreBundle\Entity\LlxComment:
+    type: entity
+    table: llx_comment
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkElement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_element
+        elementType:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: element_type
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        importKey:
+            type: string
+            nullable: true
+            length: 125
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

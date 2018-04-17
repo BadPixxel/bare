@@ -1,0 +1,100 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPaymentLoan:
+    type: entity
+    table: llx_payment_loan
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkLoan:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_loan
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datep:
+            type: datetime
+            nullable: true
+        amountCapital:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: amount_capital
+        amountInsurance:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: amount_insurance
+        amountInterest:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: amount_interest
+        fkTypepayment:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_typepayment
+        numPayment:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: num_payment
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        fkBank:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_bank
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+    lifecycleCallbacks: {  }

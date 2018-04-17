@@ -1,0 +1,139 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBank:
+    type: entity
+    table: llx_bank
+    indexes:
+        idx_bank_datev:
+            columns:
+                - datev
+        idx_bank_dateo:
+            columns:
+                - dateo
+        idx_bank_fk_account:
+            columns:
+                - fk_account
+        idx_bank_rappro:
+            columns:
+                - rappro
+        idx_bank_num_releve:
+            columns:
+                - num_releve
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datev:
+            type: date
+            nullable: true
+        dateo:
+            type: date
+            nullable: true
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        label:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_account
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserRappro:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_rappro
+        fkType:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: fk_type
+        numReleve:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: num_releve
+        numChq:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: num_chq
+        numeroCompte:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: numero_compte
+        rappro:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkBordereau:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_bordereau
+        banque:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        emetteur:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        author:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

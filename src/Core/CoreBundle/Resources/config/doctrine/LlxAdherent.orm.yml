@@ -1,0 +1,266 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAdherent:
+    type: entity
+    table: llx_adherent
+    indexes:
+        idx_adherent_fk_adherent_type:
+            columns:
+                - fk_adherent_type
+    uniqueConstraints:
+        uk_adherent_login:
+            columns:
+                - login
+                - entity
+        uk_adherent_fk_soc:
+            columns:
+                - fk_soc
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: ref_ext
+        civility:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        firstname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        login:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        pass:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        passCrypted:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: pass_crypted
+        morphy:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+        societe:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        address:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        stateId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: state_id
+        country:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        skype:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        phonePerso:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: phone_perso
+        phoneMobile:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: phone_mobile
+        birth:
+            type: date
+            nullable: true
+        photo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        statut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        public:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        datefin:
+            type: datetime
+            nullable: true
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        datevalid:
+            type: datetime
+            nullable: true
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserMod:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_mod
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        canvas:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkAdherentType:
+            targetEntity: LlxAdherentType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_adherent_type:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    manyToMany:
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkMember
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

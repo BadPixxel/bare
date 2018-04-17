@@ -1,0 +1,32 @@
+Dolibarr\Core\CoreBundle\Entity\LlxEventElement:
+    type: entity
+    table: llx_event_element
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkSource:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_source
+        fkTarget:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_target
+        targettype:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

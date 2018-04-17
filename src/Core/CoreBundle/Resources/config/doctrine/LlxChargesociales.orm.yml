@@ -1,0 +1,114 @@
+Dolibarr\Core\CoreBundle\Entity\LlxChargesociales:
+    type: entity
+    table: llx_chargesociales
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+        dateEch:
+            type: datetime
+            nullable: false
+            column: date_ech
+        libelle:
+            type: string
+            nullable: false
+            length: 80
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkType:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_type
+        fkAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_account
+        fkModeReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_mode_reglement
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        paye:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        periode:
+            type: date
+            nullable: true
+        fkProjet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_projet
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

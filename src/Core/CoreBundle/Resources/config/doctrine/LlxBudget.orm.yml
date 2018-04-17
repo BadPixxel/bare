@@ -1,0 +1,71 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBudget:
+    type: entity
+    table: llx_budget
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        dateStart:
+            type: date
+            nullable: true
+            column: date_start
+        dateEnd:
+            type: date
+            nullable: true
+            column: date_end
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        importKey:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: import_key
+    lifecycleCallbacks: {  }

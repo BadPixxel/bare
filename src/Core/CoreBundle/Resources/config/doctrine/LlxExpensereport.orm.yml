@@ -1,0 +1,301 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExpensereport:
+    type: entity
+    table: llx_expensereport
+    indexes:
+        idx_expensereport_date_debut:
+            columns:
+                - date_debut
+        idx_expensereport_date_fin:
+            columns:
+                - date_fin
+        idx_expensereport_fk_statut:
+            columns:
+                - fk_statut
+        idx_expensereport_fk_user_author:
+            columns:
+                - fk_user_author
+        idx_expensereport_fk_user_valid:
+            columns:
+                - fk_user_valid
+        idx_expensereport_fk_user_approve:
+            columns:
+                - fk_user_approve
+        idx_expensereport_fk_refuse:
+            columns:
+                - fk_user_approve
+    uniqueConstraints:
+        idx_expensereport_uk_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refNumberInt:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ref_number_int
+        refExt:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ref_ext
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        totalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_tva
+        localtax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        totalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ttc
+        dateDebut:
+            type: date
+            nullable: false
+            column: date_debut
+        dateFin:
+            type: date
+            nullable: false
+            column: date_fin
+        dateCreate:
+            type: datetime
+            nullable: false
+            column: date_create
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        dateApprove:
+            type: datetime
+            nullable: true
+            column: date_approve
+        dateRefuse:
+            type: datetime
+            nullable: true
+            column: date_refuse
+        dateCancel:
+            type: datetime
+            nullable: true
+            column: date_cancel
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkUserValidator:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_validator
+        fkUserApprove:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_approve
+        fkUserRefuse:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_refuse
+        fkUserCancel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_cancel
+        fkStatut:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_statut
+        fkCPaiement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_c_paiement
+        paid:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        detailRefuse:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: detail_refuse
+        detailCancel:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: detail_cancel
+        integrationCompta:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: integration_compta
+        fkBankAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_bank_account
+        modelPdf:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: model_pdf
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

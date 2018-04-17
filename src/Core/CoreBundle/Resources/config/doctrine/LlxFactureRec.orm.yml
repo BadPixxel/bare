@@ -1,0 +1,315 @@
+Dolibarr\Core\CoreBundle\Entity\LlxFactureRec:
+    type: entity
+    table: llx_facture_rec
+    indexes:
+        idx_facture_rec_fk_soc:
+            columns:
+                - fk_soc
+        idx_facture_rec_fk_user_author:
+            columns:
+                - fk_user_author
+        idx_facture_rec_fk_projet:
+            columns:
+                - fk_projet
+    uniqueConstraints:
+        idx_facture_rec_uk_titre:
+            columns:
+                - titre
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        suspended:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        remise:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        remisePercent:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_percent
+        remiseAbsolue:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_absolue
+        vatSrcCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                default: ''
+            column: vat_src_code
+        tva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        revenuestamp:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        total:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        totalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ttc
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkCondReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_cond_reglement
+        fkModeReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_mode_reglement
+        dateLimReglement:
+            type: date
+            nullable: true
+            column: date_lim_reglement
+        fkAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_account
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelpdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+        usenewprice:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        frequency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        unitFrequency:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: false
+                default: m
+            column: unit_frequency
+        dateWhen:
+            type: datetime
+            nullable: true
+            column: date_when
+        dateLastGen:
+            type: datetime
+            nullable: true
+            column: date_last_gen
+        nbGenDone:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nb_gen_done
+        nbGenMax:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nb_gen_max
+        autoValidate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: auto_validate
+        generatePdf:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: generate_pdf
+    manyToOne:
+        fkProjet:
+            targetEntity: LlxProjet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_projet:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserAuthor:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_author:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

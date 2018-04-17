@@ -1,0 +1,556 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSociete:
+    type: entity
+    table: llx_societe
+    indexes:
+        idx_societe_user_creat:
+            columns:
+                - fk_user_creat
+        idx_societe_user_modif:
+            columns:
+                - fk_user_modif
+    uniqueConstraints:
+        uk_societe_prefix_comm:
+            columns:
+                - prefix_comm
+                - entity
+        uk_societe_code_client:
+            columns:
+                - code_client
+                - entity
+        uk_societe_code_fournisseur:
+            columns:
+                - code_fournisseur
+                - entity
+        uk_societe_barcode:
+            columns:
+                - barcode
+                - fk_barcode_type
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        nameAlias:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: name_alias
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        refInt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_int
+        statut:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        parent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        status:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        codeClient:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+            column: code_client
+        codeFournisseur:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+            column: code_fournisseur
+        codeCompta:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+            column: code_compta
+        codeComptaFournisseur:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+            column: code_compta_fournisseur
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkDepartement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_departement
+        fkPays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_pays
+        fkAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_account
+        phone:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        fax:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        url:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        skype:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkEffectif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_effectif
+        fkTypent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_typent
+        fkFormeJuridique:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_forme_juridique
+        fkCurrency:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+            column: fk_currency
+        siren:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        siret:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        ape:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        idprof4:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        idprof5:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        idprof6:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        tvaIntra:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: tva_intra
+        capital:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        fkStcomm:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_stcomm
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        prefixComm:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: prefix_comm
+        client:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        fournisseur:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+        supplierAccount:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: supplier_account
+        fkProspectlevel:
+            type: string
+            nullable: true
+            length: 12
+            options:
+                fixed: false
+            column: fk_prospectlevel
+        fkIncoterms:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_incoterms
+        locationIncoterms:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: location_incoterms
+        customerBad:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+            column: customer_bad
+        customerRate:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: customer_rate
+        supplierRate:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: supplier_rate
+        remiseClient:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_client
+        remiseSupplier:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_supplier
+        modeReglement:
+            type: boolean
+            nullable: true
+            column: mode_reglement
+        condReglement:
+            type: boolean
+            nullable: true
+            column: cond_reglement
+        modeReglementSupplier:
+            type: boolean
+            nullable: true
+            column: mode_reglement_supplier
+        condReglementSupplier:
+            type: boolean
+            nullable: true
+            column: cond_reglement_supplier
+        fkShippingMethod:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_shipping_method
+        tvaAssuj:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+            column: tva_assuj
+        localtax1Assuj:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+            column: localtax1_assuj
+        localtax1Value:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            column: localtax1_value
+        localtax2Assuj:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+            column: localtax2_assuj
+        localtax2Value:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            column: localtax2_value
+        barcode:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+        fkBarcodeType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_barcode_type
+        priceLevel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: price_level
+        outstandingLimit:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: outstanding_limit
+        orderMinAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: order_min_amount
+        supplierOrderMinAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: supplier_order_min_amount
+        defaultLang:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: default_lang
+        logo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        canvas:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        fkEntrepot:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_entrepot
+        webservicesUrl:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: webservices_url
+        webservicesKey:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: webservices_key
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToMany:
+        fkFournCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkFourn
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkSoc
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

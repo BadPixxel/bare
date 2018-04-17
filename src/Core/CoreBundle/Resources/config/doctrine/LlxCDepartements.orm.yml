@@ -1,0 +1,69 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCDepartements:
+    type: entity
+    table: llx_c_departements
+    indexes:
+        idx_departements_fk_region:
+            columns:
+                - fk_region
+    uniqueConstraints:
+        uk_departements:
+            columns:
+                - code_departement
+                - fk_region
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        codeDepartement:
+            type: string
+            nullable: false
+            length: 6
+            options:
+                fixed: false
+            column: code_departement
+        cheflieu:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        tncc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        ncc:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        nom:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    manyToOne:
+        fkRegion:
+            targetEntity: LlxCRegions
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_region:
+                    referencedColumnName: code_region
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,101 @@
+Dolibarr\Core\CoreBundle\Entity\LlxStockMouvement:
+    type: entity
+    table: llx_stock_mouvement
+    indexes:
+        idx_stock_mouvement_fk_product:
+            columns:
+                - fk_product
+        idx_stock_mouvement_fk_entrepot:
+            columns:
+                - fk_entrepot
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datem:
+            type: datetime
+            nullable: true
+        fkProduct:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_product
+        batch:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        eatby:
+            type: date
+            nullable: true
+        sellby:
+            type: date
+            nullable: true
+        fkEntrepot:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_entrepot
+        value:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        price:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        typeMouvement:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+            column: type_mouvement
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        label:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        inventorycode:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        fkOrigin:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_origin
+        origintype:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

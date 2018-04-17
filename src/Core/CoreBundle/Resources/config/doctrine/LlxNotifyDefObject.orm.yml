@@ -1,0 +1,57 @@
+Dolibarr\Core\CoreBundle\Entity\LlxNotifyDefObject:
+    type: entity
+    table: llx_notify_def_object
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        objetType:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+            column: objet_type
+        objetId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: objet_id
+        typeNotif:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+                default: browser
+            column: type_notif
+        dateNotif:
+            type: datetime
+            nullable: true
+            column: date_notif
+        userId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: user_id
+        moreparam:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

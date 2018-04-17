@@ -1,0 +1,42 @@
+Dolibarr\Core\CoreBundle\Entity\LlxMulticurrency:
+    type: entity
+    table: llx_multicurrency
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateCreate:
+            type: datetime
+            nullable: true
+            column: date_create
+        code:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+    lifecycleCallbacks: {  }

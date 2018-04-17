@@ -1,0 +1,59 @@
+Dolibarr\Core\CoreBundle\Entity\LlxDefaultValues:
+    type: entity
+    table: llx_default_values
+    uniqueConstraints:
+        uk_default_values:
+            columns:
+                - type
+                - entity
+                - user_id
+                - page
+                - param
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        userId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: user_id
+        page:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        param:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        value:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

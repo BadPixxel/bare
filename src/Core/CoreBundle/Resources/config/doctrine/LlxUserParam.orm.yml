@@ -1,0 +1,39 @@
+Dolibarr\Core\CoreBundle\Entity\LlxUserParam:
+    type: entity
+    table: llx_user_param
+    uniqueConstraints:
+        uk_user_param:
+            columns:
+                - fk_user
+                - param
+                - entity
+    id:
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: fk_user
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        param:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        value:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,56 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExpensereportIk:
+    type: entity
+    table: llx_expensereport_ik
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkCExpTaxCat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_c_exp_tax_cat
+        fkRange:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_range
+        coef:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        ikoffset:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        active:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

@@ -1,0 +1,41 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCExpTaxRange:
+    type: entity
+    table: llx_c_exp_tax_range
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkCExpTaxCat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            column: fk_c_exp_tax_cat
+        rangeIk:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: range_ik
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        active:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

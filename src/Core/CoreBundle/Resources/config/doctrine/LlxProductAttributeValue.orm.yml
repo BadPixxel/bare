@@ -1,0 +1,43 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductAttributeValue:
+    type: entity
+    table: llx_product_attribute_value
+    uniqueConstraints:
+        uk_product_attribute_value:
+            columns:
+                - fk_product_attribute
+                - ref
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkProductAttribute:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_product_attribute
+        ref:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+        value:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

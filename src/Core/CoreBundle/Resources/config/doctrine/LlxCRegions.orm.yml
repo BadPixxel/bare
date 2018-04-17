@@ -1,0 +1,61 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCRegions:
+    type: entity
+    table: llx_c_regions
+    indexes:
+        idx_c_regions_fk_pays:
+            columns:
+                - fk_pays
+    uniqueConstraints:
+        uk_code_region:
+            columns:
+                - code_region
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        codeRegion:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: code_region
+        cheflieu:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        tncc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        nom:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    manyToOne:
+        fkPays:
+            targetEntity: LlxCCountry
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_pays:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

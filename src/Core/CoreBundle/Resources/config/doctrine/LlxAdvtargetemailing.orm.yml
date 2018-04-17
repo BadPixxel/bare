@@ -1,0 +1,62 @@
+Dolibarr\Core\CoreBundle\Entity\LlxAdvtargetemailing:
+    type: entity
+    table: llx_advtargetemailing
+    uniqueConstraints:
+        uk_advtargetemailing_name:
+            columns:
+                - name
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkMailing:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_mailing
+        filtervalue:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_author
+        datec:
+            type: datetime
+            nullable: false
+        fkUserMod:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_mod
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+    lifecycleCallbacks: {  }

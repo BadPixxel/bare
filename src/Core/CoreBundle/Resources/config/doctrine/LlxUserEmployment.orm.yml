@@ -1,0 +1,105 @@
+Dolibarr\Core\CoreBundle\Entity\LlxUserEmployment:
+    type: entity
+    table: llx_user_employment
+    indexes:
+        fk_user_employment_fk_user:
+            columns:
+                - fk_user
+    uniqueConstraints:
+        uk_user_employment:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        ref:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        refExt:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: ref_ext
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        job:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        salary:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        salaryextra:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        weeklyhours:
+            type: float
+            nullable: true
+            precision: 16
+            scale: 8
+        dateemployment:
+            type: date
+            nullable: true
+        dateemploymentend:
+            type: date
+            nullable: true
+    manyToOne:
+        fkUser:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

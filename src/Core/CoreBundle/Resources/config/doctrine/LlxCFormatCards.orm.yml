@@ -1,0 +1,108 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCFormatCards:
+    type: entity
+    table: llx_c_format_cards
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        paperSize:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: paper_size
+        orientation:
+            type: string
+            nullable: false
+            length: 1
+            options:
+                fixed: false
+        metric:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+        leftmargin:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        topmargin:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        nx:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        ny:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        spacex:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        spacey:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        width:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        height:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        fontSize:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: font_size
+        customX:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            column: custom_x
+        customY:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            column: custom_y
+        active:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

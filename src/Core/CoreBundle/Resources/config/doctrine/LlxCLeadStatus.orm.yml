@@ -1,0 +1,45 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCLeadStatus:
+    type: entity
+    table: llx_c_lead_status
+    uniqueConstraints:
+        uk_c_lead_status_code:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        percent:
+            type: float
+            nullable: true
+            precision: 5
+            scale: 2
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    lifecycleCallbacks: {  }

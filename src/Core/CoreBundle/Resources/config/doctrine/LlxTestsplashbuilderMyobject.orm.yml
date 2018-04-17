@@ -1,0 +1,52 @@
+Dolibarr\Core\CoreBundle\Entity\LlxTestsplashbuilderMyobject:
+    type: entity
+    table: llx_testsplashbuilder_myobject
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        label:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        qty:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateCreation:
+            type: datetime
+            nullable: false
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

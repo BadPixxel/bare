@@ -1,0 +1,54 @@
+Dolibarr\Core\CoreBundle\Entity\LlxRightsDef:
+    type: entity
+    table: llx_rights_def
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            id: true
+    fields:
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        module:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        perms:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        subperms:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 1
+            options:
+                fixed: false
+        bydefault:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+    lifecycleCallbacks: {  }

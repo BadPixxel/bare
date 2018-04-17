@@ -1,0 +1,59 @@
+Dolibarr\Core\CoreBundle\Entity\LlxElementContact:
+    type: entity
+    table: llx_element_contact
+    indexes:
+        fk_element_contact_fk_c_type_contact:
+            columns:
+                - fk_c_type_contact
+        idx_element_contact_fk_socpeople:
+            columns:
+                - fk_socpeople
+    uniqueConstraints:
+        idx_element_contact_idx1:
+            columns:
+                - element_id
+                - fk_c_type_contact
+                - fk_socpeople
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datecreate:
+            type: datetime
+            nullable: true
+        statut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '5'
+        elementId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: element_id
+        fkSocpeople:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_socpeople
+    manyToOne:
+        fkCTypeContact:
+            targetEntity: LlxCTypeContact
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_c_type_contact:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

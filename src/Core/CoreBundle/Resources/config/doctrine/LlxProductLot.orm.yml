@@ -1,0 +1,69 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductLot:
+    type: entity
+    table: llx_product_lot
+    uniqueConstraints:
+        uk_product_lot:
+            columns:
+                - fk_product
+                - batch
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        fkProduct:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_product
+        batch:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        eatby:
+            type: date
+            nullable: true
+        sellby:
+            type: date
+            nullable: true
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        importKey:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: import_key
+    lifecycleCallbacks: {  }

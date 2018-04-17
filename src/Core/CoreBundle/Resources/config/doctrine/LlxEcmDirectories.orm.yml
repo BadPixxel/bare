@@ -1,0 +1,106 @@
+Dolibarr\Core\CoreBundle\Entity\LlxEcmDirectories:
+    type: entity
+    table: llx_ecm_directories
+    indexes:
+        idx_ecm_directories_fk_user_c:
+            columns:
+                - fk_user_c
+        idx_ecm_directories_fk_user_m:
+            columns:
+                - fk_user_m
+    uniqueConstraints:
+        uk_ecm_directories:
+            columns:
+                - label
+                - fk_parent
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        label:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkParent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_parent
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        cachenbofdoc:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        fullpath:
+            type: string
+            nullable: true
+            length: 750
+            options:
+                fixed: false
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        dateC:
+            type: datetime
+            nullable: true
+            column: date_c
+        dateM:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: date_m
+        acl:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        fkUserC:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_c:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserM:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_m:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

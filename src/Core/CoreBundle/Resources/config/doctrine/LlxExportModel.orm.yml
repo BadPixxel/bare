@@ -1,0 +1,50 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExportModel:
+    type: entity
+    table: llx_export_model
+    uniqueConstraints:
+        uk_export_model:
+            columns:
+                - label
+                - type
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_user
+        label:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        field:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        filter:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

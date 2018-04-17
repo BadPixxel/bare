@@ -1,0 +1,423 @@
+Dolibarr\Core\CoreBundle\Entity\LlxUser:
+    type: entity
+    table: llx_user
+    indexes:
+        idx_user_fk_societe:
+            columns:
+                - fk_soc
+    uniqueConstraints:
+        uk_user_login:
+            columns:
+                - login
+                - entity
+        uk_user_fk_socpeople:
+            columns:
+                - fk_socpeople
+        uk_user_fk_member:
+            columns:
+                - fk_member
+        uk_user_api_key:
+            columns:
+                - api_key
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: ref_ext
+        refInt:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: ref_int
+        employee:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        fkEstablishment:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_establishment
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        login:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        passEncoding:
+            type: string
+            nullable: true
+            length: 24
+            options:
+                fixed: false
+            column: pass_encoding
+        pass:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        passCrypted:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: pass_crypted
+        passTemp:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: pass_temp
+        apiKey:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: api_key
+        gender:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        civility:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        firstname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkState:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_state
+        fkCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_country
+        birth:
+            type: date
+            nullable: true
+        job:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        skype:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        officePhone:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: office_phone
+        officeFax:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: office_fax
+        userMobile:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: user_mobile
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        signature:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        admin:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        moduleComm:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: module_comm
+        moduleCompta:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: module_compta
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        fkSocpeople:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_socpeople
+        fkMember:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_member
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        datelastlogin:
+            type: datetime
+            nullable: true
+        datepreviouslogin:
+            type: datetime
+            nullable: true
+        egroupwareId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: egroupware_id
+        ldapSid:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ldap_sid
+        openid:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        statut:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+        photo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        lang:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        color:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        barcode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkBarcodeType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_barcode_type
+        accountancyCode:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: accountancy_code
+        nbHoliday:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: nb_holiday
+        thm:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        tjm:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        salary:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        salaryextra:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        dateemployment:
+            type: date
+            nullable: true
+        weeklyhours:
+            type: float
+            nullable: true
+            precision: 16
+            scale: 8
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        defaultRange:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: default_range
+        defaultCExpTaxCat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: default_c_exp_tax_cat
+    manyToMany:
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkUser
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

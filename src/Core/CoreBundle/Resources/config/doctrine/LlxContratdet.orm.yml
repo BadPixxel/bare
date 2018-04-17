@@ -1,0 +1,328 @@
+Dolibarr\Core\CoreBundle\Entity\LlxContratdet:
+    type: entity
+    table: llx_contratdet
+    indexes:
+        idx_contratdet_fk_contrat:
+            columns:
+                - fk_contrat
+        idx_contratdet_fk_product:
+            columns:
+                - fk_product
+        idx_contratdet_date_ouverture_prevue:
+            columns:
+                - date_ouverture_prevue
+        idx_contratdet_date_ouverture:
+            columns:
+                - date_ouverture
+        idx_contratdet_date_fin_validite:
+            columns:
+                - date_fin_validite
+        fk_contratdet_fk_unit:
+            columns:
+                - fk_unit
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        statut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        label:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkRemiseExcept:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_remise_except
+        dateCommande:
+            type: datetime
+            nullable: true
+            column: date_commande
+        dateOuverturePrevue:
+            type: datetime
+            nullable: true
+            column: date_ouverture_prevue
+        dateOuverture:
+            type: datetime
+            nullable: true
+            column: date_ouverture
+        dateFinValidite:
+            type: datetime
+            nullable: true
+            column: date_fin_validite
+        dateCloture:
+            type: datetime
+            nullable: true
+            column: date_cloture
+        vatSrcCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                default: ''
+            column: vat_src_code
+        tvaTx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: tva_tx
+        localtax1Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax1_tx
+        localtax1Type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: localtax1_type
+        localtax2Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax2_tx
+        localtax2Type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: localtax2_type
+        qty:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        remisePercent:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_percent
+        subprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        priceHt:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_ht
+        remise:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        totalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_tva
+        totalLocaltax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_localtax1
+        totalLocaltax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_localtax2
+        totalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ttc
+        productType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+            column: product_type
+        infoBits:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: info_bits
+        buyPriceHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: buy_price_ht
+        fkProductFournisseurPrice:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_product_fournisseur_price
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_user_author
+        fkUserOuverture:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_ouverture
+        fkUserCloture:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_cloture
+        commentaire:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencySubprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_subprice
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+    manyToOne:
+        fkContrat:
+            targetEntity: LlxContrat
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_contrat:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkProduct:
+            targetEntity: LlxProduct
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_product:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUnit:
+            targetEntity: LlxCUnits
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_unit:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

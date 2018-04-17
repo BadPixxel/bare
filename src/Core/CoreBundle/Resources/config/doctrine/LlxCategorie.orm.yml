@@ -1,0 +1,219 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCategorie:
+    type: entity
+    table: llx_categorie
+    indexes:
+        idx_categorie_type:
+            columns:
+                - type
+        idx_categorie_label:
+            columns:
+                - label
+    uniqueConstraints:
+        uk_categorie_ref:
+            columns:
+                - entity
+                - fk_parent
+                - label
+                - type
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkParent:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_parent
+        label:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        type:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        color:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+        fkAssignedSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_assigned_soc
+        visible:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToMany:
+        fkAccount:
+            targetEntity: LlxBankAccount
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_account
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_account
+                        referencedColumnName: rowid
+            orderBy: null
+        fkSocpeople:
+            targetEntity: LlxSocpeople
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_contact
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_socpeople
+                        referencedColumnName: rowid
+            orderBy: null
+        fkFourn:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkFournCategorie
+            joinTable:
+                name: llx_categorie_fournisseur
+                joinColumns:
+                    -
+                        name: fk_fourn_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_fourn
+                        referencedColumnName: rowid
+            orderBy: null
+        fkMember:
+            targetEntity: LlxAdherent
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_member
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_member
+                        referencedColumnName: rowid
+            orderBy: null
+        fkProduct:
+            targetEntity: LlxProduct
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_product
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_product
+                        referencedColumnName: rowid
+            orderBy: null
+        fkProject:
+            targetEntity: LlxProjet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_project
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_project
+                        referencedColumnName: rowid
+            orderBy: null
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_societe
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_soc
+                        referencedColumnName: rowid
+            orderBy: null
+        fkUser:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: fkCategorie
+            joinTable:
+                name: llx_categorie_user
+                joinColumns:
+                    -
+                        name: fk_categorie
+                        referencedColumnName: rowid
+                inverseJoinColumns:
+                    -
+                        name: fk_user
+                        referencedColumnName: rowid
+            orderBy: null
+    lifecycleCallbacks: {  }

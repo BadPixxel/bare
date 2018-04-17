@@ -1,0 +1,53 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCategorieLang:
+    type: entity
+    table: llx_categorie_lang
+    indexes:
+        IDX_9B2B304334645A1F:
+            columns:
+                - fk_category
+    uniqueConstraints:
+        uk_category_lang:
+            columns:
+                - fk_category
+                - lang
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        lang:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+                default: '0'
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        fkCategory:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_category:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

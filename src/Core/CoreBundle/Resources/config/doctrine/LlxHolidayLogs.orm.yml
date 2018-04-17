@@ -1,0 +1,57 @@
+Dolibarr\Core\CoreBundle\Entity\LlxHolidayLogs:
+    type: entity
+    table: llx_holiday_logs
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAction:
+            type: datetime
+            nullable: false
+            column: date_action
+        fkUserAction:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_action
+        fkUserUpdate:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_update
+        fkType:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_type
+        typeAction:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: type_action
+        prevSolde:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: prev_solde
+        newSolde:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: new_solde
+    lifecycleCallbacks: {  }

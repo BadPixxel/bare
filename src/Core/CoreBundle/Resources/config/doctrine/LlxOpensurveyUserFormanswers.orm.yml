@@ -1,0 +1,27 @@
+Dolibarr\Core\CoreBundle\Entity\LlxOpensurveyUserFormanswers:
+    type: entity
+    table: llx_opensurvey_user_formanswers
+    id:
+        fkUserSurvey:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: fk_user_survey
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkQuestion:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_question
+        reponses:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

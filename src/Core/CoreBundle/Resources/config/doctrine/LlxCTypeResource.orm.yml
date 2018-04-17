@@ -1,0 +1,36 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCTypeResource:
+    type: entity
+    table: llx_c_type_resource
+    uniqueConstraints:
+        uk_c_type_resource_id:
+            columns:
+                - label
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    lifecycleCallbacks: {  }

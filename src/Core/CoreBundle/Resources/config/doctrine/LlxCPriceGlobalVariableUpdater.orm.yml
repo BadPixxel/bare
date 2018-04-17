@@ -1,0 +1,58 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCPriceGlobalVariableUpdater:
+    type: entity
+    table: llx_c_price_global_variable_updater
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        type:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        parameters:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkVariable:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_variable
+        updateInterval:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: update_interval
+        nextUpdate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: next_update
+        lastStatus:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: last_status
+    lifecycleCallbacks: {  }

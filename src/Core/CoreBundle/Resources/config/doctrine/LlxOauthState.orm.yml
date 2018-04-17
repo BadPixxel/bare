@@ -1,0 +1,44 @@
+Dolibarr\Core\CoreBundle\Entity\LlxOauthState:
+    type: entity
+    table: llx_oauth_state
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        service:
+            type: string
+            nullable: true
+            length: 36
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        fkAdherent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_adherent
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

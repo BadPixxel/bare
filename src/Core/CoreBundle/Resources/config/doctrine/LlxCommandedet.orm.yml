@@ -1,0 +1,298 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCommandedet:
+    type: entity
+    table: llx_commandedet
+    indexes:
+        idx_commandedet_fk_commande:
+            columns:
+                - fk_commande
+        idx_commandedet_fk_product:
+            columns:
+                - fk_product
+        fk_commandedet_fk_unit:
+            columns:
+                - fk_unit
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkParentLine:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_parent_line
+        fkProduct:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_product
+        label:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        vatSrcCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                default: ''
+            column: vat_src_code
+        tvaTx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            column: tva_tx
+        localtax1Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax1_tx
+        localtax1Type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: localtax1_type
+        localtax2Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax2_tx
+        localtax2Type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: localtax2_type
+        qty:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        remisePercent:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: remise_percent
+        remise:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        fkRemiseExcept:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_remise_except
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        subprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        totalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_tva
+        totalLocaltax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_localtax1
+        totalLocaltax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_localtax2
+        totalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ttc
+        productType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: product_type
+        dateStart:
+            type: datetime
+            nullable: true
+            column: date_start
+        dateEnd:
+            type: datetime
+            nullable: true
+            column: date_end
+        infoBits:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: info_bits
+        buyPriceHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: buy_price_ht
+        fkProductFournisseurPrice:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_product_fournisseur_price
+        specialCode:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: special_code
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        fkCommandefourndet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_commandefourndet
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencySubprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_subprice
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+    manyToOne:
+        fkCommande:
+            targetEntity: LlxCommande
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_commande:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUnit:
+            targetEntity: LlxCUnits
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_unit:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

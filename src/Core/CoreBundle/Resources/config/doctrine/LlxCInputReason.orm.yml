@@ -1,0 +1,41 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCInputReason:
+    type: entity
+    table: llx_c_input_reason
+    uniqueConstraints:
+        uk_c_input_reason:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

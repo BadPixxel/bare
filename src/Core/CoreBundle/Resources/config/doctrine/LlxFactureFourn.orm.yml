@@ -1,0 +1,364 @@
+Dolibarr\Core\CoreBundle\Entity\LlxFactureFourn:
+    type: entity
+    table: llx_facture_fourn
+    indexes:
+        idx_facture_fourn_date_lim_reglement:
+            columns:
+                - date_lim_reglement
+        idx_facture_fourn_fk_soc:
+            columns:
+                - fk_soc
+        idx_facture_fourn_fk_user_author:
+            columns:
+                - fk_user_author
+        idx_facture_fourn_fk_user_valid:
+            columns:
+                - fk_user_valid
+        idx_facture_fourn_fk_projet:
+            columns:
+                - fk_projet
+    uniqueConstraints:
+        uk_facture_fourn_ref:
+            columns:
+                - ref
+                - entity
+        uk_facture_fourn_ref_supplier:
+            columns:
+                - ref_supplier
+                - fk_soc
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        refSupplier:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: ref_supplier
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        type:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        datec:
+            type: datetime
+            nullable: true
+        datef:
+            type: date
+            nullable: true
+        datePointoftax:
+            type: date
+            nullable: true
+            column: date_pointoftax
+        dateValid:
+            type: date
+            nullable: true
+            column: date_valid
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        paye:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        remise:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        closeCode:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+            column: close_code
+        closeNote:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: close_note
+        tva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        localtax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        total:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        totalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_tva
+        totalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ttc
+        fkStatut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkFactureSource:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_facture_source
+        fkAccount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_account
+        fkCondReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_cond_reglement
+        fkModeReglement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_mode_reglement
+        dateLimReglement:
+            type: date
+            nullable: true
+            column: date_lim_reglement
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        fkIncoterms:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_incoterms
+        locationIncoterms:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: location_incoterms
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        lastMainDoc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: last_main_doc
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+    manyToOne:
+        fkProjet:
+            targetEntity: LlxProjet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_projet:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserAuthor:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_author:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserValid:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_valid:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

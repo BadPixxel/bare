@@ -1,0 +1,61 @@
+Dolibarr\Core\CoreBundle\Entity\LlxActioncommResources:
+    type: entity
+    table: llx_actioncomm_resources
+    indexes:
+        idx_actioncomm_resources_fk_element:
+            columns:
+                - fk_element
+    uniqueConstraints:
+        uk_actioncomm_resources:
+            columns:
+                - fk_actioncomm
+                - element_type
+                - fk_element
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkActioncomm:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_actioncomm
+        elementType:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: element_type
+        fkElement:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_element
+        answerStatus:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: answer_status
+        mandatory:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        transparency:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

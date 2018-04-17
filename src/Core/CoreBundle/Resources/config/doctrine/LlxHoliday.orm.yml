@@ -1,0 +1,184 @@
+Dolibarr\Core\CoreBundle\Entity\LlxHoliday:
+    type: entity
+    table: llx_holiday
+    indexes:
+        idx_holiday_entity:
+            columns:
+                - entity
+        idx_holiday_fk_user:
+            columns:
+                - fk_user
+        idx_holiday_fk_user_create:
+            columns:
+                - fk_user_create
+        idx_holiday_date_create:
+            columns:
+                - date_create
+        idx_holiday_date_debut:
+            columns:
+                - date_debut
+        idx_holiday_date_fin:
+            columns:
+                - date_fin
+        idx_holiday_fk_validator:
+            columns:
+                - fk_validator
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user
+        fkUserCreate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_create
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkType:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_type
+        dateCreate:
+            type: datetime
+            nullable: false
+            column: date_create
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        dateDebut:
+            type: date
+            nullable: false
+            column: date_debut
+        dateFin:
+            type: date
+            nullable: false
+            column: date_fin
+        halfday:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        statut:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkValidator:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_validator
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        dateRefuse:
+            type: datetime
+            nullable: true
+            column: date_refuse
+        fkUserRefuse:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_refuse
+        dateCancel:
+            type: datetime
+            nullable: true
+            column: date_cancel
+        fkUserCancel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_cancel
+        detailRefuse:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+            column: detail_refuse
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

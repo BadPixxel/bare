@@ -1,0 +1,73 @@
+Dolibarr\Core\CoreBundle\Entity\LlxLivraisondet:
+    type: entity
+    table: llx_livraisondet
+    indexes:
+        idx_livraisondet_fk_expedition:
+            columns:
+                - fk_livraison
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkOriginLine:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_origin_line
+        fkProduct:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_product
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        qty:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        subprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    manyToOne:
+        fkLivraison:
+            targetEntity: LlxLivraison
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_livraison:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

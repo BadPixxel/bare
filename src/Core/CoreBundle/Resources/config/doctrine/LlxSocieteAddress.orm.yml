@@ -1,0 +1,96 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSocieteAddress:
+    type: entity
+    table: llx_societe_address
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        label:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_soc
+        name:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkPays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_pays
+        phone:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        fax:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+    lifecycleCallbacks: {  }

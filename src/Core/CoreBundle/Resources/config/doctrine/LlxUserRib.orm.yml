@@ -1,0 +1,105 @@
+Dolibarr\Core\CoreBundle\Entity\LlxUserRib:
+    type: entity
+    table: llx_user_rib
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        label:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        bank:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        codeBanque:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: code_banque
+        codeGuichet:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: code_guichet
+        number:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cleRib:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cle_rib
+        bic:
+            type: string
+            nullable: true
+            length: 11
+            options:
+                fixed: false
+        ibanPrefix:
+            type: string
+            nullable: true
+            length: 34
+            options:
+                fixed: false
+            column: iban_prefix
+        domiciliation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        proprio:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        ownerAddress:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: owner_address
+    lifecycleCallbacks: {  }

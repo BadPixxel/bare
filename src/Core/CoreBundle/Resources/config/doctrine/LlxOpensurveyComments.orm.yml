@@ -1,0 +1,46 @@
+Dolibarr\Core\CoreBundle\Entity\LlxOpensurveyComments:
+    type: entity
+    table: llx_opensurvey_comments
+    indexes:
+        idx_id_comment:
+            columns:
+                - id_comment
+        idx_id_sondage:
+            columns:
+                - id_sondage
+    id:
+        idComment:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: id_comment
+            generator:
+                strategy: IDENTITY
+    fields:
+        idSondage:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: true
+            column: id_sondage
+        comment:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        usercomment:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

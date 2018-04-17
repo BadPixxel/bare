@@ -1,0 +1,47 @@
+Dolibarr\Core\CoreBundle\Entity\LlxUserRights:
+    type: entity
+    table: llx_user_rights
+    indexes:
+        fk_user_rights_fk_user_user:
+            columns:
+                - fk_user
+    uniqueConstraints:
+        uk_user_rights:
+            columns:
+                - entity
+                - fk_user
+                - fk_id
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_id
+    manyToOne:
+        fkUser:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

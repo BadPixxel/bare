@@ -1,0 +1,55 @@
+Dolibarr\Core\CoreBundle\Entity\LlxFichinterdet:
+    type: entity
+    table: llx_fichinterdet
+    indexes:
+        idx_fichinterdet_fk_fichinter:
+            columns:
+                - fk_fichinter
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkParentLine:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_parent_line
+        date:
+            type: datetime
+            nullable: true
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        duree:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    manyToOne:
+        fkFichinter:
+            targetEntity: LlxFichinter
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_fichinter:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

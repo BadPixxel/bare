@@ -1,0 +1,41 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductPricerules:
+    type: entity
+    table: llx_product_pricerules
+    uniqueConstraints:
+        unique_level:
+            columns:
+                - level
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        level:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        fkLevel:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_level
+        varPercent:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: var_percent
+        varMinPercent:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: var_min_percent
+    lifecycleCallbacks: {  }

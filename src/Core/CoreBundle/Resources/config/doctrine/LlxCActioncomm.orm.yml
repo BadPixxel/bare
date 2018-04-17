@@ -1,0 +1,69 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCActioncomm:
+    type: entity
+    table: llx_c_actioncomm
+    uniqueConstraints:
+        uk_c_actioncomm:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+                default: system
+        libelle:
+            type: string
+            nullable: false
+            length: 48
+            options:
+                fixed: false
+        module:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        todo:
+            type: boolean
+            nullable: true
+        color:
+            type: string
+            nullable: true
+            length: 9
+            options:
+                fixed: false
+        picto:
+            type: string
+            nullable: true
+            length: 48
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

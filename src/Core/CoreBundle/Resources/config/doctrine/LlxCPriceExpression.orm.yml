@@ -1,0 +1,26 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCPriceExpression:
+    type: entity
+    table: llx_c_price_expression
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        expression:
+            type: string
+            nullable: false
+            length: 80
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,171 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductCustomerPrice:
+    type: entity
+    table: llx_product_customer_price
+    indexes:
+        idx_product_customer_price_fk_user:
+            columns:
+                - fk_user
+        idx_product_customer_price_fk_soc:
+            columns:
+                - fk_soc
+        IDX_BF82453D23653981:
+            columns:
+                - fk_product
+    uniqueConstraints:
+        uk_customer_price_fk_product_fk_soc:
+            columns:
+                - fk_product
+                - fk_soc
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        price:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        priceTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: price_ttc
+        priceMin:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: price_min
+        priceMinTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: price_min_ttc
+        priceBaseType:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+                default: HT
+            column: price_base_type
+        defaultVatCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: default_vat_code
+        tvaTx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            column: tva_tx
+        recuperableonly:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        localtax1Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax1_tx
+        localtax1Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax1_type
+        localtax2Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax2_tx
+        localtax2Type:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: '0'
+            column: localtax2_type
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkProduct:
+            targetEntity: LlxProduct
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_product:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUser:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

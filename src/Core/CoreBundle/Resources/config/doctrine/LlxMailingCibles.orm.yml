@@ -1,0 +1,102 @@
+Dolibarr\Core\CoreBundle\Entity\LlxMailingCibles:
+    type: entity
+    table: llx_mailing_cibles
+    indexes:
+        idx_mailing_cibles_email:
+            columns:
+                - email
+    uniqueConstraints:
+        uk_mailing_cibles:
+            columns:
+                - fk_mailing
+                - email
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkMailing:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_mailing
+        fkContact:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_contact
+        lastname:
+            type: string
+            nullable: true
+            length: 160
+            options:
+                fixed: false
+        firstname:
+            type: string
+            nullable: true
+            length: 160
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 160
+            options:
+                fixed: false
+        other:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        tag:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        statut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        sourceUrl:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: source_url
+        sourceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: source_id
+        sourceType:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+            column: source_type
+        dateEnvoi:
+            type: datetime
+            nullable: true
+            column: date_envoi
+        errorText:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: error_text
+    lifecycleCallbacks: {  }

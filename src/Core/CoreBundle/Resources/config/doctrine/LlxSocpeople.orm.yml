@@ -1,0 +1,238 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSocpeople:
+    type: entity
+    table: llx_socpeople
+    indexes:
+        idx_socpeople_fk_soc:
+            columns:
+                - fk_soc
+        idx_socpeople_fk_user_creat:
+            columns:
+                - fk_user_creat
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        civility:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        firstname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkDepartement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_departement
+        fkPays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_pays
+        birthday:
+            type: date
+            nullable: true
+        poste:
+            type: string
+            nullable: true
+            length: 80
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        phonePerso:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: phone_perso
+        phoneMobile:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: phone_mobile
+        fax:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        jabberid:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        skype:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        photo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        noEmail:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: no_email
+        priv:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        defaultLang:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: default_lang
+        canvas:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        statut:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    manyToOne:
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserCreat:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_creat:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    manyToMany:
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkSocpeople
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

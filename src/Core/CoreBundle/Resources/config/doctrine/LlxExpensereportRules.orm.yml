@@ -1,0 +1,73 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExpensereportRules:
+    type: entity
+    table: llx_expensereport_rules
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        dates:
+            type: datetime
+            nullable: false
+        datee:
+            type: datetime
+            nullable: false
+        amount:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        restrictive:
+            type: boolean
+            nullable: false
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        fkUsergroup:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_usergroup
+        fkCTypeFees:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_c_type_fees
+        codeExpenseRulesType:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: code_expense_rules_type
+        isForAll:
+            type: boolean
+            nullable: true
+            options:
+                default: '0'
+            column: is_for_all
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

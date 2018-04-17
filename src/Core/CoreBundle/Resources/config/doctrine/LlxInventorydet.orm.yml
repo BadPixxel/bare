@@ -1,0 +1,99 @@
+Dolibarr\Core\CoreBundle\Entity\LlxInventorydet:
+    type: entity
+    table: llx_inventorydet
+    indexes:
+        idx_inventorydet_tms:
+            columns:
+                - tms
+        idx_inventorydet_datec:
+            columns:
+                - datec
+        idx_inventorydet_fk_inventory:
+            columns:
+                - fk_inventory
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkInventory:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_inventory
+        fkWarehouse:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_warehouse
+        fkProduct:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_product
+        batch:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        qtyView:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: qty_view
+        qtyStock:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: qty_stock
+        qtyRegulated:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: qty_regulated
+        pmp:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        pa:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        newPmp:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: new_pmp
+    lifecycleCallbacks: {  }

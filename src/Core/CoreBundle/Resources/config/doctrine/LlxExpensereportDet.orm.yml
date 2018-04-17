@@ -1,0 +1,254 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExpensereportDet:
+    type: entity
+    table: llx_expensereport_det
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkExpensereport:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_expensereport
+        docnumber:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        fkCTypeFees:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_c_type_fees
+        fkCExpTaxCat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_c_exp_tax_cat
+        fkProjet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_projet
+        comments:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        productType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '-1'
+            column: product_type
+        qty:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        valueUnit:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: value_unit
+        remisePercent:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: remise_percent
+        vatSrcCode:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                default: ''
+            column: vat_src_code
+        tvaTx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            column: tva_tx
+        localtax1Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax1_tx
+        localtax1Type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: localtax1_type
+        localtax2Tx:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+            options:
+                default: '0.000'
+            column: localtax2_tx
+        localtax2Type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: localtax2_type
+        totalHt:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        totalTva:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_tva
+        totalLocaltax1:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_localtax1
+        totalLocaltax2:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_localtax2
+        totalTtc:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ttc
+        date:
+            type: date
+            nullable: false
+        infoBits:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: info_bits
+        specialCode:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: special_code
+        fkMulticurrency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_multicurrency
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencySubprice:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_subprice
+        multicurrencyTotalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ht
+        multicurrencyTotalTva:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_tva
+        multicurrencyTotalTtc:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_total_ttc
+        fkFacture:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_facture
+        fkCodeVentilation:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_code_ventilation
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        ruleWarningMessage:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: rule_warning_message
+    lifecycleCallbacks: {  }

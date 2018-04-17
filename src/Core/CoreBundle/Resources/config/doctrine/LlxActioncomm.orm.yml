@@ -1,0 +1,280 @@
+Dolibarr\Core\CoreBundle\Entity\LlxActioncomm:
+    type: entity
+    table: llx_actioncomm
+    indexes:
+        idx_actioncomm_fk_soc:
+            columns:
+                - fk_soc
+        idx_actioncomm_fk_contact:
+            columns:
+                - fk_contact
+        idx_actioncomm_code:
+            columns:
+                - code
+        idx_actioncomm_fk_element:
+            columns:
+                - fk_element
+        idx_actioncomm_fk_user_action:
+            columns:
+                - fk_user_action
+        idx_actioncomm_fk_project:
+            columns:
+                - fk_project
+        idx_actioncomm_datep:
+            columns:
+                - datep
+        idx_actioncomm_datep2:
+            columns:
+                - datep2
+        idx_actioncomm_recurid:
+            columns:
+                - recurid
+        idx_actioncomm_ref_ext:
+            columns:
+                - ref_ext
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datep:
+            type: datetime
+            nullable: true
+        datep2:
+            type: datetime
+            nullable: true
+        fkAction:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_action
+        code:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserMod:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_mod
+        fkProject:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_project
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        fkContact:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_contact
+        fkParent:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_parent
+        fkUserAction:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_action
+        fkUserDone:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_done
+        transparency:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        priority:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        fulldayevent:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        punctual:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        percent:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        location:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        durationp:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        emailSubject:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_subject
+        emailMsgid:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_msgid
+        emailFrom:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_from
+        emailSender:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_sender
+        emailTo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_to
+        emailTocc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_tocc
+        emailTobcc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: email_tobcc
+        errorsTo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: errors_to
+        recurid:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        recurrule:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        recurdateend:
+            type: datetime
+            nullable: true
+        fkElement:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_element
+        elementtype:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

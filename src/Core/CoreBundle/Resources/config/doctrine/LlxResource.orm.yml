@@ -1,0 +1,133 @@
+Dolibarr\Core\CoreBundle\Entity\LlxResource:
+    type: entity
+    table: llx_resource
+    indexes:
+        fk_code_type_resource_idx:
+            columns:
+                - fk_code_type_resource
+        idx_resource_fk_country:
+            columns:
+                - fk_country
+    uniqueConstraints:
+        uk_resource_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        ref:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        assetNumber:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: asset_number
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkCodeTypeResource:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: fk_code_type_resource
+        datec:
+            type: datetime
+            nullable: true
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkStatut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+    manyToOne:
+        fkCountry:
+            targetEntity: LlxCCountry
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_country:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,185 @@
+Dolibarr\Core\CoreBundle\Entity\LlxLivraison:
+    type: entity
+    table: llx_livraison
+    indexes:
+        idx_livraison_fk_soc:
+            columns:
+                - fk_soc
+        idx_livraison_fk_user_author:
+            columns:
+                - fk_user_author
+        idx_livraison_fk_user_valid:
+            columns:
+                - fk_user_valid
+    uniqueConstraints:
+        idx_livraison_uk_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        ref:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        refExt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_ext
+        refInt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_int
+        refCustomer:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_customer
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        dateDelivery:
+            type: datetime
+            nullable: true
+            column: date_delivery
+        fkAddress:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_address
+        fkStatut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        totalHt:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: total_ht
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        lastMainDoc:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: last_main_doc
+        fkIncoterms:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_incoterms
+        locationIncoterms:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: location_incoterms
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserAuthor:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_author:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkUserValid:
+            targetEntity: LlxUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_user_valid:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

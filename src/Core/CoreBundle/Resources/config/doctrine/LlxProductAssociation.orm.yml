@@ -1,0 +1,48 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductAssociation:
+    type: entity
+    table: llx_product_association
+    indexes:
+        idx_product_association_fils:
+            columns:
+                - fk_product_fils
+    uniqueConstraints:
+        uk_product_association:
+            columns:
+                - fk_product_pere
+                - fk_product_fils
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkProductPere:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_product_pere
+        fkProductFils:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_product_fils
+        qty:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        incdec:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

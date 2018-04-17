@@ -1,0 +1,142 @@
+Dolibarr\Core\CoreBundle\Entity\LlxMenu:
+    type: entity
+    table: llx_menu
+    indexes:
+        idx_menu_menuhandler_type:
+            columns:
+                - menu_handler
+                - type
+    uniqueConstraints:
+        idx_menu_uk_menu:
+            columns:
+                - menu_handler
+                - fk_menu
+                - position
+                - url
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        menuHandler:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+            column: menu_handler
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 4
+            options:
+                fixed: false
+        mainmenu:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        leftmenu:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        fkMenu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_menu
+        fkMainmenu:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: fk_mainmenu
+        fkLeftmenu:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: fk_leftmenu
+        position:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        url:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        target:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        titre:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        langs:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        level:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        perms:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        enabled:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: '1'
+        usertype:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+    lifecycleCallbacks: {  }

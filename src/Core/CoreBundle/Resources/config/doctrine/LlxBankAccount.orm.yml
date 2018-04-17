@@ -1,0 +1,257 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBankAccount:
+    type: entity
+    table: llx_bank_account
+    indexes:
+        idx_fk_accountancy_journal:
+            columns:
+                - fk_accountancy_journal
+    uniqueConstraints:
+        uk_bank_account_label:
+            columns:
+                - label
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        ref:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        bank:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        codeBanque:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: code_banque
+        codeGuichet:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: code_guichet
+        number:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cleRib:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: cle_rib
+        bic:
+            type: string
+            nullable: true
+            length: 11
+            options:
+                fixed: false
+        ibanPrefix:
+            type: string
+            nullable: true
+            length: 34
+            options:
+                fixed: false
+            column: iban_prefix
+        countryIban:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: false
+            column: country_iban
+        cleIban:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: false
+            column: cle_iban
+        domiciliation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        stateId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: state_id
+        fkPays:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_pays
+        proprio:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        ownerAddress:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: owner_address
+        courant:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        clos:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        rappro:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        url:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        accountNumber:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: account_number
+        currencyCode:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            column: currency_code
+        minAllowed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: min_allowed
+        minDesired:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: min_desired
+        comment:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        fkAccountancyJournal:
+            targetEntity: LlxAccountingJournal
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_accountancy_journal:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    manyToMany:
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkAccount
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,51 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProductWarehouseProperties:
+    type: entity
+    table: llx_product_warehouse_properties
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkProduct:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_product
+        fkEntrepot:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_entrepot
+        seuilStockAlerte:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: seuil_stock_alerte
+        desiredstock:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

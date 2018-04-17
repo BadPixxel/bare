@@ -1,0 +1,85 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPrelevementBons:
+    type: entity
+    table: llx_prelevement_bons
+    uniqueConstraints:
+        uk_prelevement_bons_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 12
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datec:
+            type: datetime
+            nullable: true
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        statut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        credite:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        dateTrans:
+            type: datetime
+            nullable: true
+            column: date_trans
+        methodTrans:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+            column: method_trans
+        fkUserTrans:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_trans
+        dateCredit:
+            type: datetime
+            nullable: true
+            column: date_credit
+        fkUserCredit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_credit
+    lifecycleCallbacks: {  }

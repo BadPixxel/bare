@@ -1,0 +1,35 @@
+Dolibarr\Core\CoreBundle\Entity\LlxHolidayUsers:
+    type: entity
+    table: llx_holiday_users
+    uniqueConstraints:
+        uk_holiday_users:
+            columns:
+                - fk_user
+                - fk_type
+                - nb_holiday
+    id:
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: fk_user
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkType:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_type
+        nbHoliday:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: nb_holiday
+    lifecycleCallbacks: {  }

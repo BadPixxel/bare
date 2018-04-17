@@ -1,0 +1,52 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExpeditiondet:
+    type: entity
+    table: llx_expeditiondet
+    indexes:
+        idx_expeditiondet_fk_expedition:
+            columns:
+                - fk_expedition
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkOriginLine:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_origin_line
+        fkEntrepot:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_entrepot
+        qty:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        rang:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    manyToOne:
+        fkExpedition:
+            targetEntity: LlxExpedition
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_expedition:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

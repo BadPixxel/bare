@@ -1,0 +1,33 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCPriceGlobalVariable:
+    type: entity
+    table: llx_c_price_global_variable
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        value:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+    lifecycleCallbacks: {  }

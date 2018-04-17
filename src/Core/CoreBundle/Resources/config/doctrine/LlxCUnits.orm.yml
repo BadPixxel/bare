@@ -1,0 +1,42 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCUnits:
+    type: entity
+    table: llx_c_units
+    uniqueConstraints:
+        uk_c_units_code:
+            columns:
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        shortLabel:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: short_label
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+    lifecycleCallbacks: {  }

@@ -1,0 +1,124 @@
+Dolibarr\Core\CoreBundle\Entity\LlxBlockedlog:
+    type: entity
+    table: llx_blockedlog
+    indexes:
+        signature:
+            columns:
+                - signature
+        fk_object_element:
+            columns:
+                - fk_object
+                - element
+        entity:
+            columns:
+                - entity
+        fk_user:
+            columns:
+                - fk_user
+        entity_action:
+            columns:
+                - entity
+                - action
+        entity_action_certified:
+            columns:
+                - entity
+                - action
+                - certified
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        action:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        amounts:
+            type: float
+            nullable: false
+            precision: 24
+            scale: 8
+        element:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        userFullname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: user_fullname
+        fkObject:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_object
+        refObject:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ref_object
+        dateObject:
+            type: datetime
+            nullable: true
+            column: date_object
+        signature:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        signatureLine:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: signature_line
+        objectData:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: object_data
+        certified:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,91 @@
+Dolibarr\Core\CoreBundle\Entity\LlxWebsite:
+    type: entity
+    table: llx_website
+    uniqueConstraints:
+        uk_website_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        typeContainer:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+                default: page
+            column: type_container
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        ref:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        fkDefaultHome:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_default_home
+        virtualhost:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fkUserCreate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_create
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

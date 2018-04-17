@@ -1,0 +1,118 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCEmailTemplates:
+    type: entity
+    table: llx_c_email_templates
+    indexes:
+        idx_type:
+            columns:
+                - type_template
+    uniqueConstraints:
+        uk_c_email_templates:
+            columns:
+                - entity
+                - label
+                - lang
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        typeTemplate:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+            column: type_template
+        lang:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+                default: ''
+        private:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        label:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+        position:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        enabled:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: '1'
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        topic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        joinfiles:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        contentLines:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: content_lines
+    lifecycleCallbacks: {  }

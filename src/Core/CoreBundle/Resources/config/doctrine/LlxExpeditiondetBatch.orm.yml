@@ -1,0 +1,54 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExpeditiondetBatch:
+    type: entity
+    table: llx_expeditiondet_batch
+    indexes:
+        idx_fk_expeditiondet:
+            columns:
+                - fk_expeditiondet
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        eatby:
+            type: date
+            nullable: true
+        sellby:
+            type: date
+            nullable: true
+        batch:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        qty:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+        fkOriginStock:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_origin_stock
+    manyToOne:
+        fkExpeditiondet:
+            targetEntity: LlxExpeditiondet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_expeditiondet:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCommandeFournisseurLog:
+    type: entity
+    table: llx_commande_fournisseur_log
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datelog:
+            type: datetime
+            nullable: false
+        fkCommande:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_commande
+        fkStatut:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_statut
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user
+        comment:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

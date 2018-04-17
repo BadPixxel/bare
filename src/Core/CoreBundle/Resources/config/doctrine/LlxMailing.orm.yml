@@ -1,0 +1,162 @@
+Dolibarr\Core\CoreBundle\Entity\LlxMailing:
+    type: entity
+    table: llx_mailing
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        statut:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        titre:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        sujet:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        body:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        bgcolor:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+        bgimage:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cible:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        nbemail:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        emailFrom:
+            type: string
+            nullable: true
+            length: 160
+            options:
+                fixed: false
+            column: email_from
+        emailReplyto:
+            type: string
+            nullable: true
+            length: 160
+            options:
+                fixed: false
+            column: email_replyto
+        emailErrorsto:
+            type: string
+            nullable: true
+            length: 160
+            options:
+                fixed: false
+            column: email_errorsto
+        tag:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        dateCreat:
+            type: datetime
+            nullable: true
+            column: date_creat
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        dateAppro:
+            type: datetime
+            nullable: true
+            column: date_appro
+        dateEnvoi:
+            type: datetime
+            nullable: true
+            column: date_envoi
+        fkUserCreat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserValid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_valid
+        fkUserAppro:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_appro
+        extraparams:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        joinedFile1:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: joined_file1
+        joinedFile2:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: joined_file2
+        joinedFile3:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: joined_file3
+        joinedFile4:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: joined_file4
+    lifecycleCallbacks: {  }

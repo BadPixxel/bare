@@ -1,0 +1,47 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSocieteLog:
+    type: entity
+    table: llx_societe_log
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datel:
+            type: datetime
+            nullable: true
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        fkStatut:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_statut
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        author:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

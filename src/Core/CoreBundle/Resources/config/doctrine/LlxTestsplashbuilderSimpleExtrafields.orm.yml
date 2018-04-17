@@ -1,0 +1,32 @@
+Dolibarr\Core\CoreBundle\Entity\LlxTestsplashbuilderSimpleExtrafields:
+    type: entity
+    table: llx_testsplashbuilder_simple_extrafields
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        fkObject:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_object
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    lifecycleCallbacks: {  }

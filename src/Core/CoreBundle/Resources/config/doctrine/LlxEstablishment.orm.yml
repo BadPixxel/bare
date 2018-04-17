@@ -1,0 +1,107 @@
+Dolibarr\Core\CoreBundle\Entity\LlxEstablishment:
+    type: entity
+    table: llx_establishment
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        name:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        zip:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        town:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        fkState:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_state
+        fkCountry:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_country
+        profid1:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        profid2:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        profid3:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        fkUserAuthor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserMod:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_mod
+        datec:
+            type: datetime
+            nullable: false
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        status:
+            type: boolean
+            nullable: true
+            options:
+                default: '1'
+    lifecycleCallbacks: {  }

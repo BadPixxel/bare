@@ -1,0 +1,49 @@
+Dolibarr\Core\CoreBundle\Entity\LlxElementElement:
+    type: entity
+    table: llx_element_element
+    indexes:
+        idx_element_element_fk_target:
+            columns:
+                - fk_target
+    uniqueConstraints:
+        idx_element_element_idx1:
+            columns:
+                - fk_source
+                - sourcetype
+                - fk_target
+                - targettype
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkSource:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_source
+        sourcetype:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        fkTarget:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_target
+        targettype:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

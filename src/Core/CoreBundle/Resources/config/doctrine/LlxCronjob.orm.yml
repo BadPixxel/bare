@@ -1,0 +1,211 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCronjob:
+    type: entity
+    table: llx_cronjob
+    indexes:
+        idx_cronjob_status:
+            columns:
+                - status
+        idx_cronjob_datelastrun:
+            columns:
+                - datelastrun
+        idx_cronjob_datenextrun:
+            columns:
+                - datenextrun
+        idx_cronjob_datestart:
+            columns:
+                - datestart
+        idx_cronjob_dateend:
+            columns:
+                - dateend
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        jobtype:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+        label:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        command:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        classesname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        objectname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        methodename:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        params:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        md5params:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        moduleName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: module_name
+        priority:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        datelastrun:
+            type: datetime
+            nullable: true
+        datenextrun:
+            type: datetime
+            nullable: true
+        datestart:
+            type: datetime
+            nullable: true
+        dateend:
+            type: datetime
+            nullable: true
+        datelastresult:
+            type: datetime
+            nullable: true
+        lastresult:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        lastoutput:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        unitfrequency:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+                default: '3600'
+        frequency:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        maxrun:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        nbrun:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        autodelete:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        processing:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        test:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: '1'
+        fkUserAuthor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_author
+        fkUserMod:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_mod
+        fkMailing:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_mailing
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        libname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

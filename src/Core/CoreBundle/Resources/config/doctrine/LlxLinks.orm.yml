@@ -1,0 +1,51 @@
+Dolibarr\Core\CoreBundle\Entity\LlxLinks:
+    type: entity
+    table: llx_links
+    uniqueConstraints:
+        uk_links:
+            columns:
+                - objectid
+                - label
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        datea:
+            type: datetime
+            nullable: false
+        url:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        label:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        objecttype:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        objectid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

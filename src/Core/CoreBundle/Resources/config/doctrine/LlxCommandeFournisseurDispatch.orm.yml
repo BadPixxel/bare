@@ -1,0 +1,84 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCommandeFournisseurDispatch:
+    type: entity
+    table: llx_commande_fournisseur_dispatch
+    indexes:
+        idx_commande_fournisseur_dispatch_fk_commande:
+            columns:
+                - fk_commande
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkCommande:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_commande
+        fkProduct:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_product
+        fkCommandefourndet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_commandefourndet
+        qty:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        fkEntrepot:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_entrepot
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        comment:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        batch:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        eatby:
+            type: date
+            nullable: true
+        sellby:
+            type: date
+            nullable: true
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+    lifecycleCallbacks: {  }

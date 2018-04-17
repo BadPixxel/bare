@@ -1,0 +1,56 @@
+Dolibarr\Core\CoreBundle\Entity\LlxSubscription:
+    type: entity
+    table: llx_subscription
+    uniqueConstraints:
+        uk_subscription:
+            columns:
+                - fk_adherent
+                - dateadh
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: datetime
+            nullable: true
+        fkAdherent:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_adherent
+        dateadh:
+            type: datetime
+            nullable: true
+        datef:
+            type: date
+            nullable: true
+        subscription:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+        fkBank:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_bank
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

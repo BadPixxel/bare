@@ -1,0 +1,174 @@
+Dolibarr\Core\CoreBundle\Entity\LlxProjet:
+    type: entity
+    table: llx_projet
+    indexes:
+        idx_projet_fk_soc:
+            columns:
+                - fk_soc
+    uniqueConstraints:
+        uk_projet_ref:
+            columns:
+                - ref
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datec:
+            type: datetime
+            nullable: true
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        dateo:
+            type: date
+            nullable: true
+        datee:
+            type: date
+            nullable: true
+        ref:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fkUserCreat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_creat
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        public:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        fkStatut:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: fk_statut
+        fkOppStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_opp_status
+        oppPercent:
+            type: float
+            nullable: true
+            precision: 5
+            scale: 2
+            column: opp_percent
+        dateClose:
+            type: datetime
+            nullable: true
+            column: date_close
+        fkUserClose:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_close
+        notePrivate:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_private
+        notePublic:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: note_public
+        oppAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: opp_amount
+        budgetAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            column: budget_amount
+        billTime:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: bill_time
+        modelPdf:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: model_pdf
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkSoc:
+            targetEntity: LlxSociete
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_soc:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    manyToMany:
+        fkCategorie:
+            targetEntity: LlxCategorie
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: fkProject
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

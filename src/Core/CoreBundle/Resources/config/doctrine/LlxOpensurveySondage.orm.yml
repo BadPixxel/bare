@@ -1,0 +1,102 @@
+Dolibarr\Core\CoreBundle\Entity\LlxOpensurveySondage:
+    type: entity
+    table: llx_opensurvey_sondage
+    indexes:
+        idx_date_fin:
+            columns:
+                - date_fin
+    id:
+        idSondage:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+            id: true
+            column: id_sondage
+            generator:
+                strategy: IDENTITY
+    fields:
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        commentaires:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        mailAdmin:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: mail_admin
+        nomAdmin:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+            column: nom_admin
+        fkUserCreat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user_creat
+        titre:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        dateFin:
+            type: datetime
+            nullable: true
+            column: date_fin
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        format:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+        mailsonde:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+        allowComments:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+            column: allow_comments
+        allowSpy:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+            column: allow_spy
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        sujet:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

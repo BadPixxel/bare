@@ -1,0 +1,53 @@
+Dolibarr\Core\CoreBundle\Entity\LlxNotifyDef:
+    type: entity
+    table: llx_notify_def
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        datec:
+            type: date
+            nullable: true
+        fkAction:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_action
+        fkSoc:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_soc
+        fkContact:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_contact
+        fkUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user
+        type:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+                default: email
+    lifecycleCallbacks: {  }

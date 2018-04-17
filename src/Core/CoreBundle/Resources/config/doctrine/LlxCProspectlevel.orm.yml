@@ -1,0 +1,38 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCProspectlevel:
+    type: entity
+    table: llx_c_prospectlevel
+    id:
+        code:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        label:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        sortorder:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+        active:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

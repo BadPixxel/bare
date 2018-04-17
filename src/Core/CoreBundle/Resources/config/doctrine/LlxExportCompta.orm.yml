@@ -1,0 +1,36 @@
+Dolibarr\Core\CoreBundle\Entity\LlxExportCompta:
+    type: entity
+    table: llx_export_compta
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+        dateExport:
+            type: datetime
+            nullable: false
+            column: date_export
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user
+        note:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

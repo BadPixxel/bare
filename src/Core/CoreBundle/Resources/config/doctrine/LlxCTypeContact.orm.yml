@@ -1,0 +1,62 @@
+Dolibarr\Core\CoreBundle\Entity\LlxCTypeContact:
+    type: entity
+    table: llx_c_type_contact
+    uniqueConstraints:
+        uk_c_type_contact_id:
+            columns:
+                - element
+                - source
+                - code
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        element:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        source:
+            type: string
+            nullable: false
+            length: 8
+            options:
+                fixed: false
+                default: external
+        code:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        libelle:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+        module:
+            type: string
+            nullable: true
+            length: 32
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }

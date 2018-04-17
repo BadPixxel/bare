@@ -1,0 +1,129 @@
+Dolibarr\Core\CoreBundle\Entity\LlxWebsitePage:
+    type: entity
+    table: llx_website_page
+    indexes:
+        IDX_EF052F11B74060CB:
+            columns:
+                - fk_website
+    uniqueConstraints:
+        uk_website_page_url:
+            columns:
+                - fk_website
+                - pageurl
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        pageurl:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        aliasalt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        keywords:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        lang:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+        fkPage:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_page
+        htmlheader:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+        grabbedFrom:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: grabbed_from
+        fkUserCreate:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_create
+        fkUserModif:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fk_user_modif
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+        tms:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+        importKey:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+            column: import_key
+    manyToOne:
+        fkWebsite:
+            targetEntity: LlxWebsite
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_website:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

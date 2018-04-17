@@ -1,0 +1,77 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPaiementFacture:
+    type: entity
+    table: llx_paiement_facture
+    indexes:
+        idx_paiement_facture_fk_facture:
+            columns:
+                - fk_facture
+        idx_paiement_facture_fk_paiement:
+            columns:
+                - fk_paiement
+    uniqueConstraints:
+        uk_paiement_facture:
+            columns:
+                - fk_paiement
+                - fk_facture
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        amount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+        multicurrencyCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: multicurrency_code
+        multicurrencyTx:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '1.00000000'
+            column: multicurrency_tx
+        multicurrencyAmount:
+            type: float
+            nullable: true
+            precision: 24
+            scale: 8
+            options:
+                default: '0.00000000'
+            column: multicurrency_amount
+    manyToOne:
+        fkFacture:
+            targetEntity: LlxFacture
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_facture:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+        fkPaiement:
+            targetEntity: LlxPaiement
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_paiement:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

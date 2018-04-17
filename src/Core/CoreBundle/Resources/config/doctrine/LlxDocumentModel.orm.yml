@@ -1,0 +1,50 @@
+Dolibarr\Core\CoreBundle\Entity\LlxDocumentModel:
+    type: entity
+    table: llx_document_model
+    uniqueConstraints:
+        uk_document_model:
+            columns:
+                - nom
+                - type
+                - entity
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        entity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+        type:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

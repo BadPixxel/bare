@@ -1,0 +1,35 @@
+Dolibarr\Core\CoreBundle\Entity\LlxPrelevementFacture:
+    type: entity
+    table: llx_prelevement_facture
+    indexes:
+        idx_prelevement_facture_fk_prelevement_lignes:
+            columns:
+                - fk_prelevement_lignes
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fkFacture:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_facture
+    manyToOne:
+        fkPrelevementLignes:
+            targetEntity: LlxPrelevementLignes
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_prelevement_lignes:
+                    referencedColumnName: rowid
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,63 @@
+Dolibarr\Core\CoreBundle\Entity\LlxActioncommReminder:
+    type: entity
+    table: llx_actioncomm_reminder
+    indexes:
+        idx_actioncomm_reminder_rowid:
+            columns:
+                - rowid
+        idx_actioncomm_reminder_dateremind:
+            columns:
+                - dateremind
+        idx_actioncomm_reminder_fk_user:
+            columns:
+                - fk_user
+    uniqueConstraints:
+        uk_actioncomm_reminder_unique:
+            columns:
+                - fk_user
+                - typeremind
+                - offsetvalue
+                - offsetunit
+    id:
+        rowid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateremind:
+            type: datetime
+            nullable: false
+        typeremind:
+            type: string
+            nullable: false
+            length: 32
+            options:
+                fixed: false
+        fkUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: fk_user
+        offsetvalue:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        offsetunit:
+            type: string
+            nullable: false
+            length: 1
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    lifecycleCallbacks: {  }
