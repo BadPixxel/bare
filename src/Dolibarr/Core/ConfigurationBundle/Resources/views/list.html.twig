@@ -1,0 +1,58 @@
+{#{% extends 'base.html.twig' %}#}
+{% extends '@DolibarrTheme/layout.html.twig' %}
+{#{% extends '@MopaBootstrap/base.html.twig' %}#}
+
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block content_content  %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    
+    {% from '@MopaBootstrap/flash.html.twig' import flash, advanced_flash %}
+    {{ flash("danger", "AAAAA", true, false) }}
+    <h1>Hello {{ controller_name }}! ✅</h1>
+<i class="fa fa-4x fa-address-book text-success"></i>
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>src/Controller/DefaultController.php</code></li>
+        <li>Your template at <code>templates/default/index.html.twig</code></li>
+    </ul>
+    
+</div>
+    
+    <table class="table noborder" width="100%" id="myTable">
+        
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>        
+        <tbody>
+{#            <tr class="liste_titre">
+                <td class="titlefield">Paramètres Base de données</td>
+                <td>Valeur</td>
+            </tr>#}
+        {% for value in values %} 
+            <tr class="oddeven">
+                <td>{{ value.name }}</td>
+                <td>{{ value.value }}</td>
+            </tr>
+        {% endfor %} 
+
+        </tbody>
+    </table>
+        
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+</script>
+    {{ values | length }} parameters found
+{#    {{ dump(values) }}#}
+{% endblock %}

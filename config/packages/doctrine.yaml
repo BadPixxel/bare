@@ -18,10 +18,18 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        mappings:
-            App:
-                is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+#        mappings:
+#            App:
+#                is_bundle: false
+#                type: annotation
+#                dir: '%kernel.project_dir%/src/Entity'
+#                prefix: 'App\Entity'
+#                alias: App
+                
+#            DolibarrConfigurationBundle:
+#                is_bundle: true
+#                type: annotation
+##                dir: 'Entity'
+##                dir: '%kernel.project_dir%/src/Core/ConfigurationBundle/Entity'
+#                prefix: 'Dolibarr\Core\ConfigurationBundle\Entity'
+#                alias: Configuration

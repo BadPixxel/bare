@@ -15,4 +15,9 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
+    Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle::class => ['all' => true],
+    Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle::class => ['all' => true],
+    Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
+    Craue\FormFlowBundle\CraueFormFlowBundle::class => ['all' => true],
+    Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
 ];

@@ -1,24 +1,51 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-    // the project directory where compiled assets will be stored
+
+    //--------------------------------------------------------------------
+    //  MAIN ASSETS CONFIG
+    //--------------------------------------------------------------------
+
     .setOutputPath('public/build/')
-    // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
-    .enableSourceMaps(!Encore.isProduction())
+//    .enableSourceMaps(!Encore.isProduction())
     // uncomment to create hashed filenames (e.g. app.abc123.css)
     // .enableVersioning(Encore.isProduction())
-
-    // uncomment to define the assets of the project
-    // .addEntry('js/app', './assets/js/app.js')
-    // .addStyleEntry('css/app', './assets/css/app.scss')
-
     // uncomment if you use Sass/SCSS files
     // .enableSassLoader()
 
-    // uncomment for legacy applications that require $/jQuery as a global variable
-    // .autoProvidejQuery()
+
+
+    //--------------------------------------------------------------------
+    //  COMMON ASSETS 
+    //--------------------------------------------------------------------
+    .addEntry('js/common',              './src/Dolibarr/Core/ThemeBundle/Resources/assets/js/common.js')
+    .addStyleEntry('css/common',        './src/Dolibarr/Core/ThemeBundle/Resources/assets/css/common.css')
+
+    //--------------------------------------------------------------------
+    //  JQUERY EXTENSIONS
+    //--------------------------------------------------------------------
+
+
+    //--------------------------------------------------------------------
+    //  TWITER BOOTSTRAP 
+    //--------------------------------------------------------------------
+    .addEntry('js/bootstrap',           './vendor/twbs/bootstrap/dist/js/bootstrap.min.js')
+    .addStyleEntry('css/bootstrap',     './vendor/twbs/bootstrap/dist/css/bootstrap.min.css')
+
+    //--------------------------------------------------------------------
+    //  FONT AWESOME 
+    //--------------------------------------------------------------------
+    .addStyleEntry('css/fontawesome',   './vendor/bmatzner/fontawesome-bundle/Bmatzner/FontAwesomeBundle/Resources/public/css/font-awesome.min.css')
+    
+    //--------------------------------------------------------------------
+    //  DATATABLES 
+    //--------------------------------------------------------------------
+//    .addEntry('js/datatables',          './src/Dolibarr/Core/ThemeBundle/Resources/assets/plugins/datatables/datatables.js')
+//    .addStyleEntry('css/datatables',    './src/Dolibarr/Core/ThemeBundle/Resources/assets/plugins/datatables/datatables.min.css')
+    
+    
 ;
 
 module.exports = Encore.getWebpackConfig();

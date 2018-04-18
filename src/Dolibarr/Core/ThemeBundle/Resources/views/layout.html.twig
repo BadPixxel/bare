@@ -1,0 +1,20 @@
+{% extends '@MopaBootstrap/base.html.twig' %}
+
+{% block head_style %}
+    {% include "@DolibarrTheme/assets/stylesheet.html.twig" %}
+{% endblock head_style %}
+
+{% block head_script %}
+    {% include "@DolibarrTheme/assets/javascripts.html.twig" %}
+{% endblock head_script %}
+
+{% block favicon %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/dolibarrtheme/favicon.ico') }}" />
+{% endblock %}
+
+{% block title %}Dolibarr{% endblock title %}
+
+{% block foot_script_assetic %}
+    {% include "@DolibarrTheme/assets/foot_scripts.html.twig" %}
+{% endblock foot_script_assetic %}
+    

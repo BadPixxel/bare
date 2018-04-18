@@ -7,3 +7,5 @@ Dolibarr\Core\CoreBundle\DolibarrCoreBundle:
     all:    true
 Dolibarr\Core\ConfigurationBundle\DolibarrConfigurationBundle:
     all:    true        
+Dolibarr\Core\ThemeBundle\DolibarrThemeBundle:
+    all:    true      

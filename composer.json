@@ -6,7 +6,12 @@
     "require": {
         "php": "^7.0.8",
         "ext-iconv": "*",
+        "bmatzner/fontawesome-bundle": "~4.3",
+        "craue/formflow-bundle": "~3.0",
         "easycorp/easyadmin-bundle": "^1.17",
+        "knplabs/knp-menu-bundle": "^2.0",
+        "knplabs/knp-paginator-bundle": "^2.7",
+        "mopa/bootstrap-bundle": "~3.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^3.4",
         "symfony/console": "^3.4",
@@ -26,7 +31,8 @@
         "symfony/web-link": "^3.4",
         "symfony/web-server-bundle": "^3.4",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^3.4"
+        "symfony/yaml": "^3.4",
+        "twbs/bootstrap": "~3.3.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^3.4",
@@ -44,7 +50,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dolibarr\\": "src/"
+            "": "src/"
         }
     },
     "autoload-dev": {
